@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<config>
+  <global>
+    <models>
+        <xyzcatalog>
+             <class>Xyz_Catalog_Model</class>
+        </xyzcatalog>
+    </models>
+    <events>
+      <cms_page_prepare_save>
+        <observers>
+          <xyz_catalog_model_price_observer>
+            <type>singleton</type>
+            <class>Xyz_Catalog_Model_Price_Observer</class>
+            <method>apply_discount_percent</method>
+          </xyz_catalog_model_price_observer>
+        </observers>
+      </cms_page_prepare_save>    
+    </events>
+  </global>
+</config> 

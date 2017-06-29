@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<config>
+  <modules>
+    <Xyz_Catalog>
+      <codePool>local</codePool>
+      <active>true</active>
+    </Xyz_Catalog>
+  </modules>
+</config> 
