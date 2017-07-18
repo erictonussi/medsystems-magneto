@@ -7,7 +7,7 @@ class Magento {
   var $attributeSet;
 
   function __construct () {
-    $this->client = new SoapClient('http://magento.local/api/soap/?wsdl');
+    $this->client = new SoapClient('http://medsystems.kavecode.com.br/api/soap/?wsdl');
 
     $this->session = $this->client->login('eric', '123123');
   }
