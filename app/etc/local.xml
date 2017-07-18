@@ -28,10 +28,10 @@
 <config>
     <global>
         <install>
-            <date><![CDATA[Thu, 22 Jun 2017 02:35:41 +0000]]></date>
+            <date><![CDATA[Tue, 18 Jul 2017 19:09:22 +0000]]></date>
         </install>
         <crypt>
-            <key><![CDATA[a6c9c257fc9f3c85cce7a6dabd28f280]]></key>
+            <key><![CDATA[c7d26d58f6cbdaaa682831ba18344e44]]></key>
         </crypt>
         <disable_local_modules>false</disable_local_modules>
         <resources>
@@ -41,9 +41,9 @@
             <default_setup>
                 <connection>
                     <host><![CDATA[localhost]]></host>
-                    <username><![CDATA[root]]></username>
-                    <password><![CDATA[]]></password>
-                    <dbname><![CDATA[magento]]></dbname>
+                    <username><![CDATA[732b3ae0a89b]]></username>
+                    <password><![CDATA[ab50e121895cd216]]></password>
+                    <dbname><![CDATA[medsystems]]></dbname>
                     <initStatements><![CDATA[SET NAMES utf8]]></initStatements>
                     <model><![CDATA[mysql4]]></model>
                     <type><![CDATA[pdo_mysql]]></type>
