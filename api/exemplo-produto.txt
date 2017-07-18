@@ -1,0 +1,345 @@
+USASERIESEPWMS                                :  N
+FIXOAGENDA                                    :  S
+GRUPODESCPROD                                 :
+TEMPOSERV                                     :
+IMPORDEMCORTE                                 :  N
+CLASSETOX                                     :
+INDESPPRODEPE                                 :
+TAMSERIE                                      :
+TEMPMINIMA                                    :
+TIPSUBST                                      :  N
+CARACTERISTICAS                               :  XEO - PONTEIRA PROWAVE - 6 HORAS - Epilação com fototipo de 1 a 6
+SHELFLIFE                                     :
+STATUSINCEXC                                  :
+LASTRO                                        :
+MULTIPVENDA                                   :
+ORIGPROD                                      :  0
+PERCTOLPESOMAIOR                              :
+APRESFORM                                     :  S
+CODPROD                                       :  2
+CONVERVOL                                     :
+CODREGMAPA                                    :
+ONEROSO                                       :  N
+ESTMAXQTD                                     :  0.0
+DTALTER                                       :  01/06/2017 14:21:19
+CODFAB                                        :
+AD_ENVIAREMAILOS                              :  SIM
+CODFORMPREC                                   :  1
+PERCQUEBRATEC                                 :
+AD_USADONOPRODUTO                             :  3
+GRUPOICMS2                                    :
+AD_CODSERNFE                                  :  7285
+MAXMULTECONECT                                :
+CODPROJ                                       :  0
+DTVALDIF                                      :  X
+TEMCOMISSAO                                   :  S
+CSTIPISAI                                     :
+DOSAGEM                                       :
+TERMOLABIL                                    :  N
+CLASSEAGT                                     :
+TEMCIAP                                       :  N
+PERCCMTEST                                    :  0.0
+DTALTEREMQ                                    :  13/08/2014 15:20:33
+REGRAWMS                                      :  O
+CONTROLADO                                    :  N
+GRUPOQUIMICO                                  :
+IMPETIQCONF                                   :  S
+TAMLOTE                                       :
+CODTRIBMUNISS                                 :
+CODBARBALANCA                                 :  N
+NATEFDCONTM410M810                            :
+DOSAGEMPOR                                    :
+COMGER                                        :
+PERCCMTMUN                                    :  0.0
+CODRFA                                        :
+USOPROD                                       :  S
+TEMPMAXIMA                                    :
+PERCTOLPESOMENOR                              :
+UNIDADE                                       :  MM
+NOMETAB                                       :
+CLASSUBTRIB                                   :  12
+CODFCI                                        :
+PROMOCAO                                      :  N
+USAIMPAGRUPMIN                                :  S
+CODVOLCOMPRA                                  :  0
+TITCONTEST                                    :
+ESTMAXDIAS                                    :
+AD_VOLTAGEM                                   :
+DESVIOMAX                                     :  0.0
+CODESPECST                                    :
+NUMITEMREA                                    :
+HRDOBRADA                                     :  N
+CODICMSFAST                                   :
+TIPSERNFE                                     :
+CODCTACTB4                                    :
+CODCTACTB3                                    :
+CODCTACTB2                                    :
+DESCRPRODNFE                                  :
+CODGAR                                        :
+CODLST                                        :
+SEQSPR                                        :
+DESCMAX                                       :
+NOTIFCONF                                     :
+ICMSGERENCIA                                  :  S
+IMPLAUDOLOTE                                  :  N
+CAT1799SPRES                                  :  N
+CONTROLMEDIC                                  :
+TEMINSS                                       :  N
+PERCIRF                                       :
+UTILIZAENDFLUT                                :
+QTDIDENTIF                                    :
+CODANP                                        :
+ESTMAX                                        :
+CODGENERO                                     :
+APLICACAO                                     :
+CODENQIPISAI                                  :  104
+TIPCONTEST                                    :  N
+HOMEPAGE                                      :
+SHELFLIFEMIN                                  :
+INTERVALO                                     :
+ESTSEGDIAS                                    :
+FATTOTAL                                      :
+PESOBRUTO                                     :  0.00000
+ESPESSURA                                     :
+PERCCMTFED                                    :  0.0
+CODAUTCODIF                                   :
+TEMIPIVENDA                                   :  N
+UTILIMOB                                      :
+RECUPAVARIA                                   :  N
+OBSETIQUETA                                   :
+USALOTEDTVAL                                  :  N
+ALTURA                                        :
+DTSUBST                                       :
+CALCULOGIRO                                   :  E
+DESCMAXFLEX                                   :
+IDENTIMOB                                     :
+CULTURA                                       :
+DIASEXPEDICAO                                 :
+CODPRODSUBKIT                                 :
+IDENCOSME                                     :  N
+AGRUPCOMPMINIMO                               :  0.0
+CODCAT                                        :
+FORMULACAO                                    :
+GRUPOCOFINS                                   :  TODOS
+PRODUTONFE                                    :  0
+MANEJOINT                                     :
+CODPRODSUBST                                  :
+FABRICANTE                                    :
+ENQREINTEGRA                                  :  N
+PERCINSS                                      :  0.0
+CODCONFKIT                                    :
+MODOAPLIC                                     :
+CORFUNDOCONSPRECO                             :
+CODAREASEP                                    :
+CODIPI                                        :
+EXIGEBENEFIC                                  :  N
+CODUSU                                        :  220
+BALANCA                                       :  N
+COMPLDESC                                     :
+IDENCORRELATO                                 :  N
+CODPAT                                        :
+GRUPOICMS                                     :
+ALERTAESTMIN                                  :  S
+MOTIVOINCEXC                                  :
+TEMMEDICAO                                    :  N
+APRESDETALHE                                  :  N
+PERCTOLPESOMENORSEP                           :
+CODCOMP                                       :
+AD_VLR_COMERCIAL                              :
+PERCAUMENTCUSTO                               :
+TIPOIDENTIF                                   :
+CODPARCCONSIG                                 :
+VLRCOMERC                                     :
+LARGURA                                       :
+CODVOLPLAN                                    :
+CODPRODAGRUPAPT                               :
+QTDNFLAUDOSINT                                :  0
+CODCOS                                        :
+CONCENTRACAO                                  :
+VOLDOSAGEMPOR                                 :
+AD_EMRPESA_DISTRIBUICAO                       :  MEDSYSTEMS
+CORFONTCONSPRECO                              :
+M3                                            :
+PRODFALTA                                     :  N
+SEQSTE                                        :
+VENCOMPINDIV                                  :
+CODVOLPESOVAR                                 :
+REDBASEIRF                                    :
+CODGRUPOPROD                                  :  970340101
+MODETIQSEPWMS                                 :
+DECCUSTO                                      :
+DESCRPROD                                     :  LOC XEO PROWAVE - 6 HS
+ENDIMAGEM                                     :
+UNIDMINARMAZ                                  :
+USACONTPESOVAR                                :
+CODCPR                                        :
+MARCA                                         :
+CIENTIFICO                                    :
+REFMERCMED                                    :  N
+CODPRODAGRUPAPTENC                            :
+TIPOKIT                                       :
+RASTRESTOQUE                                  :  N
+CODPRODROI                                    :
+PERMCOMPPROD                                  :  S
+VALCBGLOBAL                                   :  N
+CODTAB                                        :
+IDENOTC                                       :
+APURAPRODEPE                                  :
+ARREDAGRUP                                    :  0.5
+USACODBARRASQTD                               :  N
+PERCCMTNAC                                    :  0.0
+DECVLR                                        :  2
+IMAGEM                                        :
+FLEX                                          :  S
+ARREDPRECO                                    :
+USALOCAL                                      :  N
+TEMIRF                                        :  N
+USASTATUSLOTE                                 :  N
+RENDIMENTO                                    :
+PRAZOVAL                                      :
+TIPO                                          :
+LISCONTEST                                    :
+PADRAO                                        :  S
+AD_LANDED                                     :
+CODPAIS                                       :
+LOTECOMPRAS                                   :
+ATIVO                                         :  S
+AP1RCTEGO                                     :  N
+GERAPLAPROD                                   :  N
+SEQSCA                                        :
+LOCAL                                         :  N
+TOPFATURCON                                   :
+EPOCAAPLIC                                    :
+LEADTIME                                      :
+LOTECOMPMINIMO                                :  0.0
+CODCENCUS                                     :  0
+ALIQGERAL                                     :
+TIPCONTESTWMS                                 :  N
+TEMISS                                        :  I
+CODCTACTB                                     :
+NROPROCESSO                                   :
+CODVOL                                        :  UN
+TIPGTINNFE                                    :  0
+GRUPOCSSL                                     :  TODOS
+CAMADAS                                       :
+CNAE                                          :
+PERCTOLPESOMAIORSEP                           :
+SOLCOMPRA                                     :  N
+ACRESCMAX                                     :
+VISIVELAPPOS                                  :
+ENDMODROTULO                                  :
+CODFORMAPONTA                                 :
+EXIGELASTROCAMADAS                            :
+CODVOLRES                                     :
+CODEXNCM                                      :  0
+INFPUREZA                                     :  N
+REDBASEINSS                                   :  0.0
+CARENCIA                                      :
+IDENPORTARIA                                  :
+IMPETIQSEPWMS                                 :
+COMPONOBRIG                                   :  N
+UTILIZAWMS                                    :  N
+AD_DTVALIDADE                                 :
+AD_OBSAT                                      :
+CODLOCALPADRAO                                :
+APLICASAZO                                    :  S
+PERCCMTIMP                                    :  0.0
+CODTER                                        :
+TEMIPICOMPRA                                  :  N
+LOCALIZACAO                                   :
+ESTMIN                                        :
+REFFORN                                       :  LOC XEO PROWAVE - 6 HS
+CONFCEGAPESO                                  :  N
+ALIQICMSINTEFD                                :
+ESTSEGQTD                                     :  0.0
+DESCVENCONSUL                                 :
+NCM                                           :
+TIPLANCNOTA                                   :  A
+QTDEMB                                        :
+COMVEND                                       :
+MEDAUX                                        :
+NATUREZAOPERDES                               :
+CSTIPIENT                                     :
+VOLDOSAGEM                                    :
+MVAAJUSTADO                                   :  0.0
+TEMICMS                                       :  N
+STATUSMED                                     :  0
+VLRPARCIMPEXT                                 :
+AD_OBSLOC1                                    :
+MVAPADRAO                                     :
+TEMCREDPISCOFINSDEPR                          :  N
+GRUPOPIS                                      :  TODOS
+CODGPROD                                      :
+INTEGRAECONECT                                :  N
+AD_QTDHR                                      :  6
+DIMENSOES                                     :  N
+LISTALPM                                      :  N
+PESOLIQ                                       :  0.00000
+CODENQIPIENT                                  :
+CODVTP                                        :
+SERFATURCON                                   :
+SELECIONADO                                   :
+USASERIEFAB                                   :
+DTALTERESQ                                    :  13/08/2014 15:20:33
+CODMOEDA                                      :  0
+CODFILTRO                                     :
+PRINCATIVO                                    :
+CODNAT                                        :  0
+EXCLUIRCONF                                   :
+REFERENCIA                                    :
+USALOTEDTFAB                                  :  S
+CODPARCFORN                                   :
+RENDIMENTOHA                                  :
+MARGLUCRO                                     :  0.0
+DECQTD                                        :  0
+UTILSMARTCARD                                 :  N
+CONFERE                                       :  S
+REMETER                                       :  N
+AGRUPMIN                                      :
+CODFILTROREQ                                  :
+VALCAPM3                                      :  N
+RECEITUARIO                                   :  N
+AD_GARANTIA                                   :
+ParceiroFabricante_NOMEPARC                   :
+FormulaPrecificacao_DESCRFORM                 :  Fórmula Padrão
+Projeto_IDENTIFICACAO                         :  <SEM PROJETO>
+RegraArmazenagem_DESCRICAO                    :
+UnidadeCompra_DESCRVOL                        :  <SEM VOLUME>
+PlanoContaConta4_DESCRCTA                     :
+PlanoContaEmpresa3_DESCRCTA                   :
+PlanoContaEmpresa2_DESCRCTA                   :
+Servico_DESCRPROD                             :
+SubClassificacaoMedicamento_DESCRICAO         :
+GeneroProduto_DESCRICAO                       :
+ProdutoSubstitutoKit_DESCRPROD                :
+CategoriaMedicamento_DESCRICAO                :
+Produto3_DESCRPROD                            :
+ConfiguracaoKit_DESCRCONFKIT                  :
+AreaSeparacao_NOMEAREASEP                     :
+AliquotaIPI_DESCRICAO                         :
+PrincipioAtivo_DESCRICAO                      :
+Parceiro_NOMEPARC                             :
+ProdutoApontamento1_DESCRPROD                 :
+SubClasseTerapeutica_DESCRICAO                :
+UnidadeSeparacaoPesoVariavel_DESCRVOL         :
+GrupoProduto_DESCRGRUPOPROD                   :  LOC MAQUINAS
+RelatorioEtiquetaSeparacao_DESCRICAO          :
+UnidadeMinArmazenagemWMS_DESCRVOL             :
+ClassificacaoMedicamento_DESCRICAO            :
+ProdutoApontamento2_DESCRPROD                 :
+NomeTabelasPrecoFilha_NOMETAB                 :
+SubCategoriaMedicamento_DESCRICAO             :
+TipoOperacaoGrupoFaturamento_DESCROPER        :
+CentroResultado_DESCRCENCUS                   :  <SEM CENTRO DE RESULTADO>
+PlanoContaEmpresa_DESCRCTA                    :
+Volume_DESCRVOL                               :  UNIDADE
+VolumeResumoEntrega_DESCRVOL                  :
+LocalFinanceiro_DESCRLOCAL                    :
+ClasseTerapeutica_DESCRICAO                   :
+GrupoProducaoProduto_DESCRGPROD               :
+ViaTransporte_DESCRICAO                       :
+Moeda_NOMEMOEDA                               :  <MOEDA CORRENTE>
+Formula_DESCRFORM                             :
+Natureza_DESCRNAT                             :  <SEM NATUREZA>
+ParceiroFornecedor_NOMEPARC                   :
+FormulaRequisicao_DESCRFORM                   :
