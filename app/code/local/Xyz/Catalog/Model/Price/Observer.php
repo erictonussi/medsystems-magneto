@@ -11,9 +11,9 @@ class Xyz_Catalog_Model_Price_Observer
      */
     public function apply_discount_percent($observer)
     {
-      $event = $observer->getEvent(); 	
+      $event = $observer->getEvent();
          $model = $event->getPage();
-   	     print_r($model->getData());
-         die('test');
+   	     // print_r($model->getData());
+         // die('test');
     }
 }
