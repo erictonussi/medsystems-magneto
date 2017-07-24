@@ -13,10 +13,10 @@ $parsed = $sankhya->crud(
         <entity path="">
           <fieldset list="*" />
         </entity>
-        <!--criteria>
-          <expression>(this.CODPROD &lt; ?)</expression>
-          <parameter type="N">36</parameter>
-        </criteria-->
+        <criteria>
+          <expression>(this.CODGRUPAI = ?)</expression>
+          <parameter type="N">970340101</parameter>
+        </criteria>
       </dataSet>
     </requestBody>
    </serviceRequest>'

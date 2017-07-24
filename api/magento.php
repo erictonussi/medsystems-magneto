@@ -53,8 +53,8 @@ class Magento {
      foreach ($products as $product) {
        $result = $this->client->call($this->session, 'catalog_product.info', $product['product_id']);
 
-       // var_dump($result);
-       // die();
+       var_dump($result);
+       die();
 
        $ids[] = $result['sankhya_id'];
      }
