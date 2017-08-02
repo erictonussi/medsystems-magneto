@@ -1,0 +1,50 @@
+#-- A --
+#-- B --
+#-- C --
+"Config","Configura&ccedil;&otilde;es"
+#-- D --
+"Delivery","Delivery"
+"Dear customer: we are not making this CEP delivers, choose other means.","Prezado cliente: Neste CEP não efetuamos entrega, escolha outro meio."
+#-- E --
+"Enable","Habilitar"
+#-- F --
+"File","Arquivo"
+"File CSV","Arquivo CSV"
+#-- G --
+"Generate CSV File Standard","Gerar Arquivo CSV Padr&atilde;o"
+#-- H --
+#-- I --
+"Import","Importar"
+"Import Rule zip code","Importar Regra de ceps"
+"Important Information","Informa&ccedil;&otilde;es Importantes"
+"If there is an error or the method is not applicable in this situation, still show the error messages?","Se houver um erro ou o m&eacute;todo n&atilde;o for aplic&aacute;vel naquela situa&ccedil;&atilde;o, mesmo assim mostrar as mensagens de erro?"
+#-- J --
+#-- K --
+#-- L --
+#-- M --
+#-- N --
+"Name Mode of Delivery","Nome do Meio de Entrega"
+#-- O --
+#-- P --
+#-- Q --
+#-- R --
+"Return: ERROR - Reading CSV file.","Retorno: ERRO - Leitura no arquivo CSV."
+"Return: ERROR - Sending form data.","Retorno: ERRO - Envio de dados do formul&aacute;rio."
+"Return: Import successful. <br/> Time: %s minute","Retorno: Importa&ccedil;&atilde;o realizada com sucesso. <br/> Tempo: %s minuto"
+#-- S --
+"Show method even if not applicable","Mostrar m&eacute;todo mesmo se n&atilde;o aplic&aacute;vel"
+#-- T --
+#-- U --
+#-- V --
+#-- X --
+#-- Z --
+"Zip code not found in the Range of ceps","CEP não encontrado no Range de ceps"
+#----
+"Steps to use the module","Passos para utiliza&ccedil;&atilde;o do m&oacute;dulo"
+"1 - Generate the CSV file to be modified by clicking the -> Generate CSV Standard;","1 - Gere o arquivo CSV para poss&iacute;vel modifica&ccedil;&atilde;o clicando no bot&atilde;o -> Gerar arquivo CSV Padr&atilde;o;"
+"2 - After The previous step please download the CSV file to your machine and modify the values in the file;","2 - Ap&oacute;s o passo anterior efetue o download do arquivo CSV para sua m&aacute;quina e modifique os valores no arquivo;"
+"3 - After modifying select the CSV file (Select File ...) choose the modified CSV file;","3 - Ap&oacute;s modificar o arquivo CSV selecione (Selecionar arquivo...) escolha o arquivo CSV modificado;"
+"4 - Click on (Import);","4 - Click em (Importar);"
+"5 - Check the CEP and value ranges;","5 - Verifique as faixas de CEP e valor;"
+"Note: For more information read the README.TXT file in the root of the module (app/code/community/Bertholdo/Entrega)","Obs: Para maiores informa&ccedil;&otilde;es leia o arquivo README.TXT na raiz do m&oacute;dulo (app/code/community/Bertholdo/Entrega)"
+"When installing the module it is already populated with a standard CSV file, just create the file and modify it.","Ao instalar o m&oacute;dulo o mesmo j&aacute; vem populado com um arquivo CSV padr&atilde;o, basta gerar o arquivo e modifica-lo."

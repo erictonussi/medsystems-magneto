@@ -1,0 +1,66 @@
+<style>
+.logo {float:left; padding:0 0px 20px 0}
+.brtEntregaDir {float:left; padding:0 0px 0px 5px}
+</style>
+<div class="content-header">
+    <table cellspacing="0" class="grid-header">
+        <tr>
+            <td><h3><?php   echo $this->__('Import Rule zip code'); ?></h3></td>
+	    <td class="a-right">
+	    	<button onclick="formExportacaoCsvPadrao.submit()" class="scalable save" type="button"><span><?php   echo $this->__('Generate CSV File Standard'); ?></span></button>
+	    </td>
+        </tr>
+    </table>
+</div>
+<div class='logo'>
+	<img src="<?php echo $this->getSkinUrl('Bertholdo/logo_brtentrega.jpg'); ?>" alt="Brt Entrega">	
+</div>
+<div class="entry-edit brtEntregaDir">
+    <form id="form_importacao_csv" name="form_importacao_csv" method="post" action="<?php echo $this->getUrl('*/*/importacaoCsv'); ?>" enctype="multipart/form-data">
+        <input name="form_key" type="hidden" value="<?php echo Mage::getSingleton('core/session')->getFormKey(); ?>" />
+        <h4 class="icon-head fieldset-legend"><?php   echo $this->__('Import'); ?> 
+	<br/><br/>
+	<?php   echo $this->__('Steps to use the module'); ?>
+	<br/><br/>
+	<?php   echo $this->__('1 - Generate the CSV file to be modified by clicking the -> Generate CSV Standard;'); ?>
+	<br/>
+	<?php   echo $this->__('2 - After The previous step please download the CSV file to your machine and modify the values in the file;'); ?>
+	<br/>
+	<?php   echo $this->__('3 - After modifying select the CSV file (Select File ...) choose the modified CSV file;'); ?>
+	<br/>
+	<?php   echo $this->__('4 - Click on (Import);'); ?>
+	<br/>
+	<?php   echo $this->__('5 - Check the CEP and value ranges;'); ?>
+	<br/><br/>
+	<?php   echo $this->__('When installing the module it is already populated with a standard CSV file, just create the file and modify it.'); ?>
+	<br/>
+	<br/>
+	<?php   echo $this->__('Note: For more information read the README.TXT file in the root of the module (app/code/community/Bertholdo/Entrega)'); ?>
+	</h4>
+	<br />
+        <fieldset id="my-fieldset">
+            <table cellspacing="0" class="form-list">
+                <tr>
+                    <td class="label"><h4><?php   echo $this->__('File'); ?><span class="required"></span><h4></td>
+                    <td class="input-ele">		    
+			    <ul class="form-list">
+				<li>
+				    <label class="required"><em>*</em><?php   echo $this->__('File CSV'); ?><span id='file_upload_text'></span></label>
+				    <div class="input-box"><input id="file_upload" type="file" name="file_upload" /></div>
+				    <br/>
+				    <button onclick="formImportacaoCsv.submit()" class="scalable save" type="button"><span><?php   echo $this->__('Import'); ?></span></button>
+				</li>
+			    </ul>
+		    </td>		    
+                </tr>
+            </table>
+        </fieldset>
+    </form>
+    <form id="form_exportacao_csv_padrao" name="form_exportacao_csv_padrao" method="post" action="<?php echo $this->getUrl('*/*/exportacaoCsv'); ?>">
+        <input name="form_key" type="hidden" value="<?php echo Mage::getSingleton('core/session')->getFormKey(); ?>" />        
+    </form>
+</div>
+<script type="text/javascript">
+    var formImportacaoCsv = new varienForm('form_importacao_csv');
+    var formExportacaoCsvPadrao = new varienForm('form_exportacao_csv_padrao');
+</script>

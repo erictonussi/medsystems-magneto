@@ -1,0 +1,152 @@
+<?xml version="1.0"?>
+<config>
+    <modules> <!-- modulo -->
+        <Bertholdo_Entrega>
+            <version>1.0.1</version>
+            <depends>
+                <Mage_Shipping /> <!-- referencia ao shipping do core -->
+            </depends>
+        </Bertholdo_Entrega>
+    </modules>
+    <global> <!-- global -->
+        <models>
+            <entrega>
+                <class>Bertholdo_Entrega_Model</class>
+                <resourceModel>entrega_mysql4</resourceModel>
+            </entrega>
+            <entrega_mysql4>
+                <class>Bertholdo_Entrega_Model_Mysql4</class>
+            </entrega_mysql4>
+        </models>
+        <blocks>
+            <entrega>
+                <class>Bertholdo_Entrega_Block</class>
+            </entrega>
+        </blocks>
+        <helpers>
+            <entrega>
+                <class>Bertholdo_Entrega_Helper</class>
+            </entrega>  
+        </helpers>
+        <resources>
+            <entrega_setup>
+                <setup>
+                    <module>Bertholdo_Entrega</module>
+                </setup>
+                <connection>
+                    <use>core_setup</use>
+                </connection>
+            </entrega_setup>
+            <entrega_write>
+                <connection>
+                    <use>core_write</use>
+                </connection>
+            </entrega_write>
+            <entrega_read>
+                <connection>
+                    <use>core_read</use>
+                </connection>
+            </entrega_read>
+        </resources>
+        <sales> <!-- fazendo o metodo aparecer no processo de venda da loja (shipping) -->
+            <shipping>
+                <carriers>
+                    <entrega>
+                        <class>Bertholdo_Entrega_Model_Carrier_EntregaMethod</class>
+                    </entrega>
+                </carriers>
+            </shipping>
+        </sales>
+    </global>
+    <admin> <!-- admin -->
+        <routers>
+            <adminhtml>
+                <args>
+                    <modules>
+                       <entrega after="Mage_Adminhtml">Bertholdo_Entrega</entrega>
+                       <frontName>entrega</frontName>
+                    </modules>
+                </args>
+            </adminhtml>
+        </routers>
+    </admin>
+    <frontend> <!-- frontend -->
+        <translate>
+            <modules>
+                <Bertholdo_Entrega>
+                    <files>
+                        <default>Bertholdo_Entrega.csv</default>
+                    </files>
+                </Bertholdo_Entrega>
+            </modules>
+        </translate>
+    </frontend>
+    <adminhtml> <!-- adminhtml -->
+        <translate>
+            <modules>
+                <Bertholdo_Entrega>
+                    <files>
+                        <entrega>Bertholdo_Entrega.csv</entrega>
+                    </files>
+                </Bertholdo_Entrega>
+            </modules>
+        </translate>
+        <menu>
+            <mycustom_menu_entrega translate="title" module="entrega">
+            <title>Brt Delivery</title>
+            <sort_order>80</sort_order> <!-- ando no menu do admin de 10 em 10 -->
+                <children>
+                    <subitem module="entrega">
+                        <title><![CDATA[Import Rule zip code]]></title>
+                        <sort_order>0</sort_order>
+                        <action>adminhtml/adminhtml_entregarangecep</action>
+                    </subitem>
+                    <subitem1 module="entrega">
+                        <title><![CDATA[Config]]></title>
+                        <sort_order>1</sort_order>
+                        <action>adminhtml/system_config/edit/section/carriers</action>
+                    </subitem1>
+                </children>
+            </mycustom_menu_entrega>
+        </menu>
+        <acl>
+            <resources>
+                <admin>
+                    <children>
+                        <mycustom_menu_entrega translate="title" module="entrega">
+                            <title>BRT DELIVERY</title>
+                            <sort_order>80</sort_order> <!-- ando no menu do admin de 10 em 10 -->
+                            <children>
+                                <subitem translate="title" module="entrega">
+                                    <title><![CDATA[Import Rule zip code]]></title>
+                                    <sort_order>0</sort_order>
+                                </subitem>
+                                <subitem1 translate="title" module="entrega">
+                                    <title><![CDATA[Config]]></title>
+                                    <sort_order>1</sort_order>
+                                </subitem1>
+                            </children>
+                        </mycustom_menu_entrega>
+                    </children>
+                </admin>
+            </resources>
+        </acl>
+        <layout>
+            <updates>
+                <entrega>
+                    <file>entrega.xml</file>
+                </entrega>
+            </updates>
+        </layout>
+    </adminhtml>
+    <default> <!-- default config modulo admin referencia ao shipping do core -->
+        <carriers>
+            <options_entrega>
+                <active>1</active>
+                <model>Bertholdo_Entrega_Model_Carrier_EntregaMethod</model> <!-- acionando o modelo dentro do processo de shipping -->
+                <title><![CDATA[Delivery]]></title>
+                <showmethod>0</showmethod>
+            </options_entrega>
+        </carriers>
+    </default>
+</config>

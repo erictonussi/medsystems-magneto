@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<config>
+	<modules>
+		<Bertholdo_Entrega>
+			<active>true</active>
+			<codePool>community</codePool>
+		</Bertholdo_Entrega>
+	</modules>
+</config>

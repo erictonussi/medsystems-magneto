@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<layout version="1.0.0">
+    <entrega_adminhtml_entregarangecep_index>
+        <update handle="entrega_entregarangecep_index"/>
+        <reference name="content">
+			<block type="adminhtml/template" name="entregarangecep" template="entrega/entregarangecep.phtml"/>
+        </reference>
+    </entrega_adminhtml_entregarangecep_index>
+</layout>
