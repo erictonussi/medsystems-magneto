@@ -31,14 +31,14 @@
        <form action="<?php echo $this->getFormActionUrl() ?>" method="post" id="shipping-zip-form">
             <p class="shipping-desc"><?php echo $this->__('Enter your destination to get a shipping estimate.') ?></p>
             <ul class="form-list">
-                <li class="shipping-country">
+                <li class="shipping-country" style="display: none;">
                     <label for="country" class="required"><em>*</em><?php echo $this->__('Country') ?></label>
                     <div class="input-box">
                         <?php echo Mage::getBlockSingleton('directory/data')->getCountryHtmlSelect($this->getEstimateCountryId()) ?>
                     </div>
                 </li>
             <?php // if($this->getStateActive()): ?>
-                <li class="shipping-region">
+                <li class="shipping-region" style="display: none;">
                     <?php /* Removing the conditional check for whether the region is required, because it doesn't work
                     <label for="region_id"<?php if ($this->isStateProvinceRequired()) echo ' class="required"' ?>><?php if ($this->isStateProvinceRequired()) echo '<em>*</em>' ?><?php echo $this->__('State/Province') ?></label>
                     */ ?>
@@ -64,7 +64,7 @@
                     </div>
                 </li>
             <?php endif; ?>
-                <li class="shipping-postcode">
+                <li class="shipping-postcode-">
                     <?php /* Removing the conditional check for whether the postal code is required, because it doesn't work
                     <label for="postcode"<?php if ($this->isZipCodeRequired()) echo ' class="required"' ?>><?php if ($this->isZipCodeRequired()) echo '<em>*</em>' ?><?php echo $this->__('Zip/Postal Code') ?></label>
                     */ ?>
