@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<config>
+  <!-- <depends>
+    <Mage_Customer />
+  </depends> -->
+  <modules>
+    <Tonussi_CpfLogin>
+       <active>true</active>
+       <codePool>local</codePool>
+    </Tonussi_CpfLogin>
+  </modules>
+</config>
