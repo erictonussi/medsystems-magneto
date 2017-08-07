@@ -14,8 +14,8 @@ $parsed = $sankhya->crud(
           <fieldset list="CODPROD, DESCRPROD, CARACTERISTICAS, TIPLANCNOTA, PESOBRUTO" />
         </entity>
         <criteria>
-          <expression>(this.CODPROD &lt; ?)</expression>
-          <parameter type="N">36</parameter>
+          <expression>(this.CODPROD = ?)</expression>
+          <parameter type="N">467</parameter>
         </criteria>
       </dataSet>
     </requestBody>
@@ -38,7 +38,7 @@ foreach ($parsed->responseBody->entities[0]->entity as $entity) {
   // echo trim($entity->f1), "\n";
   // echo trim($entity->f2), "\n";
 
-  $result = $magento->product_create("$entity->f0", $sku, "$entity->f1", "$entity->f2");
+  // $result = $magento->product_create("$entity->f0", $sku, "$entity->f1", "$entity->f2");
 
 
   echo "\n\n\n\n";

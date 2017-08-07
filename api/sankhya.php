@@ -58,6 +58,12 @@ class Sankhya {
       </serviceRequest>', true);
   }
 
+  //http://177.188.121.233:8180/mge/service.sbr?serviceName=CRUDServiceProvider.loadRecords&counter=3192918232&application=GruposProdutosServicos&mgeSession=B4427DD4AF60991A9E5A816F3CE7536C&resourceID=br.com.sankhya.core.cad.gruposProdutosServicos&vss=2&allowConcurrentCalls=true&globalID=e840c550727d46f091e87173d7da8fa1&re=1
+  function consulta_grupos () {
+    return $this->curl_call('mge/service.sbr?serviceName=CRUDServiceProvider.loadRecords',
+      '<serviceRequest serviceName="CRUDServiceProvider.loadRecords"><requestBody><dataSet rootEntity="GrupoProduto" crudListener="br.com.sankhya.modelcore.crudlisteners.HierarchyCrudListener" includePresentationFields="S" parallelLoader="false" datasetid="1502136504555_2"><entity path=""><fieldset list="*"/></entity><entity path="Natureza"><field name="DESCRNAT"/></entity><entity path="Projeto"><field name="ABREVIATURA"/></entity><criteria><expression>(this.CODGRUPOPROD &gt; 0)</expression></criteria></dataSet><clientEventList/></requestBody></serviceRequest>', true);
+  }
+
   function crud ($xml) {
     return $this->curl_call('mge/service.sbr?serviceName=CRUDServiceProvider.loadRecords', $xml);
   }
