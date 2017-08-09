@@ -2,3 +2,5 @@ var/
 var/*
 /media/
 app/etc/local.xml
+api/config.json
+api/backup/*
