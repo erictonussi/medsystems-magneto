@@ -116,6 +116,14 @@ foreach ($config->grupos as $key => $value) {
           ->setDescription($entity->f2)
           ->setCategoryIds(array($value)) //assign product to categories
           ->setsankhya_id($sankhya_id)
+          ->setStockData(array(
+            'use_config_manage_stock' => 0, //'Use config settings' checkbox
+            'manage_stock'=> 1, //manage stock
+            // 'min_sale_qty'=>1, //Minimum Qty Allowed in Shopping Cart
+            // 'max_sale_qty'=>2, //Maximum Qty Allowed in Shopping Cart
+            'is_in_stock' => 0, //Stock Availability
+            'qty' => 0 //qty
+          ))
         ;
         $product->save();
         // echo "<p>Produto cadastrado com sucesso</p>";
