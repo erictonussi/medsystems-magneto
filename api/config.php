@@ -8,8 +8,3 @@ if ($json_input) {
 }
 // echo 'Hello ' . htmlspecialchars($_POST["teste"]) . '!';
 ?>
-{
-  "grupos": {
-    "3040800": 5
-  }
-}
