@@ -1,0 +1,2 @@
+app,app ui-view{margin-top:25px;display:block}grupo-list{font-size:12px;position:relative}grupo-list>ul{list-style-type:none;padding-left:10px}grupo-list>ul:not(.opened){display:none}grupo-list label{cursor:pointer;display:block}grupo-list .has-children>label:before{content:"+";position:absolute;left:0}grupo-list .opened>.has-children>label:before{content:"-"}grupo-list li.destaque{background:#ff0}
+/*# sourceMappingURL=../maps/styles/app-cebc404a16.css.map */
