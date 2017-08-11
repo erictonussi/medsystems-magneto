@@ -53,21 +53,21 @@ foreach ($products as $product) {
 
     // // Check if there is a stock item object
     $stockItem = Mage::getModel('cataloginventory/stock_item')->loadByProduct($product->getId());
-    // $stockItemData = $stockItem->getData();
-    // if (empty($stockItemData)) {
+    $stockItemData = $stockItem->getData();
+    if (empty($stockItemData)) {
 
-    //     // Create the initial stock item object
-    //     $stockItem->setData('manage_stock',1);
-    //     $stockItem->setData('is_in_stock',$estoque ? 1 : 0);
-    //     $stockItem->setData('use_config_manage_stock', 0);
-    //     $stockItem->setData('stock_id',1);
-    //     $stockItem->setData('product_id',$product->getId());
-    //     $stockItem->setData('qty',0);
-    //     $stockItem->save();
+        // Create the initial stock item object
+        $stockItem->setData('manage_stock',1);
+        $stockItem->setData('is_in_stock',$estoque ? 1 : 0);
+        $stockItem->setData('use_config_manage_stock', 0);
+        $stockItem->setData('stock_id',1);
+        $stockItem->setData('product_id',$product->getId());
+        $stockItem->setData('qty',0);
+        $stockItem->save();
 
-    //     // Init the object again after it has been saved so we get the full object
-    //     $stockItem = Mage::getModel('cataloginventory/stock_item')->loadByProduct($product->getId());
-    // }
+        // Init the object again after it has been saved so we get the full object
+        $stockItem = Mage::getModel('cataloginventory/stock_item')->loadByProduct($product->getId());
+    }
 
     $productos[] = array(
       "name" => $product->name,

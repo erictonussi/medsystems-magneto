@@ -41,9 +41,6 @@ foreach ($products as $product) {
 
     if ( $valor && $product->price != $valor ) {
       $product->setPrice($valor)->save();
-
-      echo json_encode($produtos);
-      die();
     }
 
   }
