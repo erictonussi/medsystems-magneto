@@ -68,6 +68,15 @@ class Sankhya {
     return $this->curl_call('mge/service.sbr?serviceName=CRUDServiceProvider.loadRecords', $xml);
   }
 
+  function consulta_precos ($expression) {
+    return $this->curl_call('mgecom/service.sbr?serviceName=ConsultaProdutosSP.getDetalhesPrecos',
+      "<serviceRequest serviceName='ConsultaProdutosSP.getDetalhesPrecos'>
+        <requestBody>
+          <criterio CODPROD='$expression' RESOURCEID='br.com.sankhya.com.cons.consultaProdutos'/>
+        </requestBody>
+      </serviceRequest>", true);
+  }
+
   function __destruct () {
 
   }
