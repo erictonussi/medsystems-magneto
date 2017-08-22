@@ -76,8 +76,9 @@ foreach ($config->grupos as $key => $value) {
     $sankhya_id = $entity->f0;
 
     $sku = trim($entity->f1);
-    $sku = str_replace(array(' ', '(', ')'), '-', $sku);
-    $sku = str_replace('/[^a-z0-9]/i', '-', $sku);
+    $sku = str_replace(' ', '-', $sku);
+    $sku = preg_replace('/[^A-Za-z0-9\-]/', '-', $sku);
+    // $sku = str_replace('/[^a-z0-9]/i', '-', $sku);
     $sku = preg_replace('/-+/', '-', $sku);
     $sku = trim($sku, '-');
 

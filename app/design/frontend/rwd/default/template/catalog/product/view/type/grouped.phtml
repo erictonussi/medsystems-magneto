@@ -46,7 +46,7 @@
         <?php foreach ($_associatedProducts as $_item): ?>
             <?php $_finalPriceInclTax = $this->helper('tax')->getPrice($_item, $_item->getFinalPrice(), true) ?>
             <tr>
-                <td class='image'>
+                <td class='image' width="1">
                     <img class="thumbnail"
                          src="<?php echo $this->helper('catalog/image')->init($_item, 'thumbnail')->constrainOnly(true)->resize(105, 80); ?>"
                          alt="<?php echo $this->escapeHtml($this->getImageLabel()) ?>"

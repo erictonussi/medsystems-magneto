@@ -1,0 +1,29 @@
+<?php
+$rootId = Mage::app()->getStore()->getRootCategoryId();
+$categories = Mage::getModel('catalog/category')->getCollection()
+    ->addAttributeToSelect('*')
+    ->addAttributeToFilter('parent_id', $rootId)
+    ->setOrder('position')
+    ->addAttributeToFilter('include_in_menu', 1) //this is needed if you want only the categories in the menu
+    ->addAttributeToFilter('is_active', 1);
+
+$_helper = $this->helper('catalog/output');
+?>
+<?php if ($categories->count() > 0) : ?>
+<ul class="catalog-category-list">
+    <?php foreach ($categories as $category) : ?>
+       <li>
+          <a href="<?php echo $category->getUrl()?>" title="<?php echo $this->escapeHtml($category->getName())?>">
+           <div class="image">
+               <?php if ($category->getImageUrl()) :?>
+                   <img src="<?php echo $category->getImageUrl()?>" alt="<?php echo $this->escapeHtml($category->getName())?>" width="250" />
+               <?php endif;?>
+           </div>
+           <div class="name">
+              <?php echo $category->getName()?>
+           </div>
+          </a>
+       </li>
+    <?php endforeach;?>
+</ul>
+<?php endif;?>
