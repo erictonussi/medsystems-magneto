@@ -627,12 +627,18 @@
 
 .grouped-items-table {
     .name-wrapper {
-        color: $c-text-primary;
+        // color: $c-text-primary;
         font-family: $f-stack-special;
     }
 
     .qty-wrapper {
         // padding-top: $element-spacing;
+    }
+
+    .button {
+        font-family: monospace;
+        padding: 5px 10px;
+        font-size: 20px;
     }
 
     .qty-label {
@@ -644,8 +650,8 @@
         padding: 4px;
 
         &:last-child {
-            width: 30%;
-            text-align: left;
+            width: 100px;
+            // text-align: left;
         }
     }
     .price-box{

@@ -4597,8 +4597,12 @@ p.product-name a:hover {
 }
 
 .grouped-items-table .name-wrapper {
-  color: #3399CC;
   font-family: "Raleway", "Helvetica Neue", Verdana, Arial, sans-serif;
+}
+.grouped-items-table .button {
+  font-family: monospace;
+  padding: 5px 10px;
+  font-size: 20px;
 }
 .grouped-items-table .qty-label {
   margin-left: 7px;
@@ -4607,8 +4611,7 @@ p.product-name a:hover {
   padding: 4px;
 }
 .grouped-items-table td:last-child {
-  width: 30%;
-  text-align: left;
+  width: 100px;
 }
 .grouped-items-table .price-box {
   text-align: right;
