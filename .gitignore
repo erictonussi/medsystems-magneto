@@ -4,3 +4,4 @@ var/*
 app/etc/local.xml
 api/config.json
 api/backup/*
+skin/frontend/rwd/default/scss/.sass-cache
