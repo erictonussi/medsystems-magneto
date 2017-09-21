@@ -10,7 +10,7 @@ class Sankhya {
       '<serviceRequest serviceName="MobileLoginSP.login">
           <requestBody>
             <NOMUSU>lojav</NOMUSU>
-            <INTERNO>07etlp01</INTERNO>
+            <INTERNO>159753</INTERNO>
           </requestBody>
         </serviceRequest>');
 
@@ -28,7 +28,7 @@ class Sankhya {
         'User-Agent: teste'
         ));
     curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-    curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, 300);
+    curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, 600);
 
     if ( $this->jsessionid ) {
       curl_setopt($ch, CURLOPT_COOKIE, 'JSESSIONID='.$this->jsessionid);
@@ -82,13 +82,13 @@ class Sankhya {
     return $this->curl_call('mgecom/service.sbr?serviceName=CACSP.incluirAlterarCabecalhoNota',
       "<serviceRequest serviceName=\"CACSP.incluirAlterarCabecalhoNota\">
         <requestBody>
-          <nota>
+          <nota ownerServiceCall=\"CentralNotas\">
             <cabecalho>
               <AD_OBS1/>
               <DTADIAM/>
               <CODSITE/>
               <BASESUBSTSEMRED/>
-              <DTNEG>02/09/2017 0:00:00</DTNEG>
+              <DTNEG>". date("d/m/Y") ." 0:00:00</DTNEG>
               <CODCONTATOENTREGA/>
               <TIPNOTAPMB/>
               <AD_CODFIADOR1/>
@@ -165,6 +165,7 @@ class Sankhya {
               <SITUACAOCTE/>
               <AD_CANCELAR/>
               <STATUSWMS/>
+              <TERMACORDNOTA/>
               <AD_FRETE/>
               <TIPLIBERACAO/>
               <VLRROYALT/>
@@ -173,9 +174,11 @@ class Sankhya {
               <LOTACAO/>
               <NURD8/>
               <VLRICMSFCP/>
+              <VLRICMSFCPINT/>
               <TOTALCUSTOPROD/>
               <AD_NUREL/>
               <TPAMBCTE/>
+              <TPAMBNFSE/>
               <VIATRANSP/>
               <DTREMRET/>
               <M3AENTREGAR/>
@@ -191,6 +194,7 @@ class Sankhya {
               <AD_VLRCREDISS/>
               <VLRSEG/>
               <EXIGEISSQN/>
+              <FORMPGTCTE/>
               <VLRNOTA/>
               <REBOQUE1/>
               <TIPOPTAGJNFE/>
@@ -206,6 +210,7 @@ class Sankhya {
               <VLRDESCSERV/>
               <CODUSUINC/>
               <PERCDESC/>
+              <PERCDESCFOB/>
               <CODCIDDESTINO/>
               <STATUSCTE/>
               <BASEICMS/>
@@ -268,7 +273,7 @@ class Sankhya {
               <SEQCARGA/>
               <SERIENFDES/>
               <VLRISS/>
-              <DHTIPVENDA>04/04/2014 10:36:37</DHTIPVENDA>
+              <!--DHTIPVENDA>04/04/2014 10:36:37</DHTIPVENDA-->
               <VLRPISST/>
               <CODVENDTEC>0</CODVENDTEC>
               <DIGITAL/>
@@ -320,6 +325,7 @@ class Sankhya {
               <AD_DTVENCISS/>
               <AD_HISTORICO/>
               <DESCRHISTAC/>
+              <DESCTERMACORD/>
               <VLRFRETE/>
               <VLRINSS/>
               <PESOLIQUIMANUAL/>
@@ -332,6 +338,8 @@ class Sankhya {
               <CODUFORIGEM/>
               <NUMPROTOCCTE/>
               <VLRSTEXTRANOTATOT/>
+              <VLRSTFCPINT/>
+              <VLRSTFCPINTANT/>
               <DTPREVENT/>
               <NUMOS/>
               <NUMALEATORIO/>
@@ -360,6 +368,7 @@ class Sankhya {
               <CODCIDPREST/>
               <CODEMPNEGOC/>
               <CODPROJ>10101</CODPROJ>
+              <!--CODPROJ/-->
               <CODPARCTRANSPFINAL/>
               <TIPIPIEMB>N</TIPIPIEMB>
               <APROVADO/>
@@ -370,6 +379,41 @@ class Sankhya {
               <CODMODDOCNOTA/>
             </cabecalho>
           </nota>
+          <txProperties>
+            <prop name=\"br.com.sankhya.mgefin.recalculo.custopreco.Automatico\" value=\"false\"/>
+            <prop name=\"cabecalhoNota.inserindo.pedidoWeb\" value=\"false\"/>
+            <prop name=\"br.com.sankhya.mgefin.checarfinanceiro.RecalcularVencimento\" value=\"false\"/>
+            <prop name=\"br.com.sankhya.mgefin.checarfinanceiro.VlrEntrada\" value=\"0\"/>
+          </txProperties>
+          <clientEventList>
+            <clientEvent>br.com.sankhya.mgecomercial.event.estoque.insuficiente.produto</clientEvent>
+            <clientEvent>central.save.grade.itens.mostrar.popup.serie</clientEvent>
+            <clientEvent>central.save.grade.itens.mostrar.popup.info.lote</clientEvent>
+            <clientEvent>br.com.sankhya.mgecomercial.event.cadastrarDistancia</clientEvent>
+            <clientEvent>br.com.sankhya.mgecom.imobilizado</clientEvent>
+            <clientEvent>br.com.sankhya.mgecomercial.event.faturamento.confirmacao</clientEvent>
+            <clientEvent>br.com.sankhya.mgecom.central.itens.KitRevenda.msgValidaFormula</clientEvent>
+            <clientEvent>br.com.sankhya.mgecom.compra.SolicitacaoComprador</clientEvent>
+            <clientEvent>br.com.sankhya.mgecom.central.itens.KitRevenda</clientEvent>
+            <clientEvent>br.com.utiliza.dtneg.servidor</clientEvent>
+            <clientEvent>br.com.sankhya.mgecomercial.event.compensacao.credito.debito</clientEvent>
+            <clientEvent>br.com.sankhya.mgecom.coleta.entrega.recalculado</clientEvent>
+            <clientEvent>br.com.sankhya.mgecomercial.event.baixaPortal</clientEvent>
+            <clientEvent>br.com.sankhya.mgefin.solicitacao.liberacao.orcamento</clientEvent>
+            <clientEvent>br.com.sankhya.exibir.variacao.valor.item</clientEvent>
+            <clientEvent>br.com.sankhya.mgefin.event.fixa.vencimento</clientEvent>
+            <clientEvent>br.com.sankhya.mgecom.event.troca.item.por.produto.alternativo</clientEvent>
+            <clientEvent>br.com.sankhya.mgecom.cancelamento.notas.remessa</clientEvent>
+            <clientEvent>br.com.sankhya.mgecom.valida.ChaveNFeCompraTerceiros</clientEvent>
+            <clientEvent>br.com.sankhya.actionbutton.clientconfirm</clientEvent>
+            <clientEvent>br.com.sankhya.mgecom.central.itens.VendaCasada</clientEvent>
+            <clientEvent>br.com.sankhya.mgecomercial.event.estoque.componentes</clientEvent>
+            <clientEvent>br.com.sankhya.mgecom.nota.adicional.SolicitarUsuarioGerente</clientEvent>
+            <clientEvent>br.com.sankhya.importacaoxml.cfi.para.produto</clientEvent>
+            <clientEvent>br.com.sankhya.mgecom.event.troca.item.por.produto.substituto</clientEvent>
+            <clientEvent>br.com.sankhya.exibe.msg.variacao.preco</clientEvent>
+            <clientEvent>br.com.sankhya.mgecom.expedicao.SolicitarUsuarioConferente</clientEvent>
+          </clientEventList>
         </requestBody>
       </serviceRequest>", true);
   }
@@ -379,7 +423,7 @@ class Sankhya {
     return $this->curl_call('mgecom/service.sbr?serviceName=CACSP.inicializaProdutoItemNota',
       "<serviceRequest serviceName=\"CACSP.inicializaProdutoItemNota\">
         <requestBody>
-          <NOTA CIF_FOB=\"F\" CODEMP=\"2\" CODEMPNEGOC=\"2\" CODLOCALORIG=\"0\" CODPARC=\"60\" CODPROD=\"$item\" CODTIPOPER=\"103\" CODTIPVENDA=\"560\" CODVEND=\"0\" DTNEG=\"02/09/2017 0:00:00\" EHMATERIAPRIMA=\"false\" NUNOTA=\"$nota\"/>
+          <NOTA CIF_FOB=\"F\" CODEMP=\"2\" CODEMPNEGOC=\"2\" CODLOCALORIG=\"0\" CODPARC=\"60\" CODPROD=\"$item\" CODTIPOPER=\"103\" CODTIPVENDA=\"560\" CODVEND=\"0\" DTNEG=\"". date("d/m/Y") ." 0:00:00\" EHMATERIAPRIMA=\"false\" NUNOTA=\"$nota\"/>
         </requestBody>
       </serviceRequest>", true);
   }
@@ -392,6 +436,167 @@ class Sankhya {
       $item = $itens[$i];
       $parsed = $this->inicializa_item($nota, $item['id']);
       $item_nota = $parsed->responseBody->NOTA;
+      // $itens_xml .= "
+      //   <item>
+      //     <AD_DESCMAX/>
+      //     <AD_DESPCOMPL/>
+      //     <AD_DISPFINAL/>
+      //     <AD_DISPINICIAL/>
+      //     <AD_FRANQUIA1/>
+      //     <AD_GARANTIA/>
+      //     <AD_MOT_BONIFICA/>
+      //     <AD_VLRDISPARO/>
+      //     <ALIQICMS>4</ALIQICMS>
+      //     <ALIQICMSRED/>
+      //     <ALIQIPI>0</ALIQIPI>
+      //     <ALIQISS/>
+      //     <ALTPRECO/>
+      //     <ALTURA/>
+      //     <ATUALESTOQUE/>
+      //     <ATUALESTTERC/>
+      //     <BASEICMS/>
+      //     <BASEIPI/>
+      //     <BASEISS/>
+      //     <BASESTANT>0</BASESTANT>
+      //     <BASESTUFDEST>0</BASESTUFDEST>
+      //     <BASESUBSTIT>0</BASESUBSTIT>
+      //     <BASESUBSTITANT/>
+      //     <BASESUBSTITUNITORIG/>
+      //     <BASESUBSTSEMRED/>
+      //     <BASICMMOD/>
+      //     <BASICMSTMOD/>
+      //     <CODANTECIPST/>
+      //     <CODCAV/>
+      //     <CODCFO/>
+      //     <CODCFPS/>
+      //     <CODEMP/>
+      //     <CODENQIPI/>
+      //     <CODESPECST/>
+      //     <CODEXEC/>
+      //     <CODLOCALDEST/>
+      //     <CODLOCALORIG>" . $item_nota->CODLOCALORIG . "</CODLOCALORIG>
+      //     <CODMOTDESONERAICMS/>
+      //     <CODOBSPADRAO/>
+      //     <CODPARCEXEC/>
+      //     <CODPROC/>
+      //     <CODPROD>".$item['id']."</CODPROD>
+      //     <CODPROMO/>
+      //     <CODTPA/>
+      //     <CODTRIB/>
+      //     <CODTRIBISS/>
+      //     <CODUSU/>
+      //     <CODVEND>0</CODVEND>
+      //     <CODVOL>" . $item_nota->CODVOL . "</CODVOL>
+      //     <CODVOLPAD>" . $item_nota->CODVOLPAD . "</CODVOLPAD>
+      //     <CODVOLPARC/>
+      //     <COMPLDESC/>
+      //     <CONTROLE/>
+      //     <CONTROLEDEST/>
+      //     <CSOSN/>
+      //     <CSTIPI/>
+      //     <CUSTO>" . $item_nota->CUSTO . "</CUSTO>
+      //     <DTALTER/>
+      //     <DTINICIO/>
+      //     <DTVIGOR/>
+      //     <ENDIMAGEM/>
+      //     <ESPESSURA/>
+      //     <ESTOQUE/>
+      //     <FATURAR/>
+      //     <GRUPOTRANSG/>
+      //     <GTINNFE/>
+      //     <GTINTRIBNFE/>
+      //     <IDALIQICMS/>
+      //     <LARGURA/>
+      //     <M3>0</M3>
+      //     <MARCA>" . $item_nota->MARCA . "</MARCA>
+      //     <NCM>" . $item_nota->NCM . "</NCM>
+      //     <NROPROCESSO/>
+      //     <NRSERIERESERVA/>
+      //     <NUFOP/>
+      //     <NUMCONTRATO/>
+      //     <NUMEROOS/>
+      //     <NUMPEDIDO2/>
+      //     <NUNOTA>$nota</NUNOTA>
+      //     <NUPROMOCAO/>
+      //     <NUTAB>20</NUTAB>
+      //     <OBSERVACAO>Venda efetuada pelo site.</OBSERVACAO>
+      //     <ORIGPROD/>
+      //     <PENDENTE/>
+      //     <PERCCOM/>
+      //     <PERCCOMGER/>
+      //     <PERCDESC>0</PERCDESC>
+      //     <PERCDESCBASE/>
+      //     <PERCDESCBONIF/>
+      //     <PERCDESCDIGITADO/>
+      //     <PERCDESCPROM/>
+      //     <PERCDESCTGFDES/>
+      //     <PERCGERMIN/>
+      //     <PERCPUREZA/>
+      //     <PESOBRUTO/>
+      //     <PESOLIQ/>
+      //     <PRECOBASE>0</PRECOBASE>
+      //     <PRECOBASEQTD/>
+      //     <PRODUTOALTERNATIVO>N</PRODUTOALTERNATIVO>
+      //     <PRODUTONFE/>
+      //     <QTDCONFERIDA/>
+      //     <QTDENTREGUE/>
+      //     <QTDFAT/>
+      //     <QTDFIXADA/>
+      //     <QTDFORMULA/>
+      //     <QTDNEG>".$item['qtd']."</QTDNEG>
+      //     <QTDPECA/>
+      //     <QTDPENDENTE/>
+      //     <QTDUNIDPAD>".$item['qtd']."</QTDUNIDPAD>
+      //     <QTDVOL>1</QTDVOL>
+      //     <QTDWMS/>
+      //     <REFERENCIA/>
+      //     <REFFORN/>
+      //     <RESERVA/>
+      //     <SEQPEDIDO2/>
+      //     <SEQUENCIA/>
+      //     <SOLCOMPRA/>
+      //     <STATUSLOTE>N</STATUSLOTE>
+      //     <STATUSNOTA>A</STATUSNOTA>
+      //     <TERCEIROS/>
+      //     <USOPROD>R</USOPROD>
+      //     <VARIACAOFCP/>
+      //     <VLRACRESCDESC/>
+      //     <VLRCOM/>
+      //     <VLRCOMGER/>
+      //     <VLRCUS>0</VLRCUS>
+      //     <VLRDESC>0</VLRDESC>
+      //     <VLRDESCBONIF/>
+      //     <VLRDESCDIGITADO/>
+      //     <VLRDESCMOE>0</VLRDESCMOE>
+      //     <VLRICMS>0</VLRICMS>
+      //     <VLRICMSANT/>
+      //     <VLRICMSUFDEST>0</VLRICMSUFDEST>
+      //     <VLRIPI>0</VLRIPI>
+      //     <VLRISS/>
+      //     <VLRLIQPROM/>
+      //     <VLRPROMO/>
+      //     <VLRPTOPUREZA/>
+      //     <VLRREPRED/>
+      //     <VLRRETENCAO/>
+      //     <VLRSTEXTRANOTA/>
+      //     <VLRSUBST>0</VLRSUBST>
+      //     <VLRSUBSTANT/>
+      //     <VLRSUBSTUNITORIG/>
+      //     <VLRSUGERIDO/>
+      //     <VLRTOT>".($item['qtd']*$item['valor'])."</VLRTOT>
+      //     <VLRTOTLIQ>".($item['qtd']*$item['valor'])."</VLRTOTLIQ>
+      //     <VLRTOTLIQMOE>0</VLRTOTLIQMOE>
+      //     <VLRTOTMOE>0</VLRTOTMOE>
+      //     <VLRTROCA/>
+      //     <VLRUNIDPAD>".$item['valor']."</VLRUNIDPAD>
+      //     <VLRUNIT>".$item['valor']."</VLRUNIT>
+      //     <VLRUNITDOLAR/>
+      //     <VLRUNITLIQ>".$item['valor']."</VLRUNITLIQ>
+      //     <VLRUNITLIQMOE>0</VLRUNITLIQMOE>
+      //     <VLRUNITLOC/>
+      //     <VLRUNITMOE>0</VLRUNITMOE>
+      //   </item>
+      // ";
       $itens_xml .= "
         <item>
           <AD_DESCMAX/>
@@ -402,15 +607,15 @@ class Sankhya {
           <AD_GARANTIA/>
           <AD_MOT_BONIFICA/>
           <AD_VLRDISPARO/>
-          <ALIQICMS>0</ALIQICMS>
-          <ALIQICMSRED/>
+          <ALIQICMS>4</ALIQICMS>
+          <!-- <ALIQICMSRED/> -->
           <ALIQIPI>0</ALIQIPI>
           <ALIQISS/>
           <ALTPRECO/>
           <ALTURA/>
           <ATUALESTOQUE/>
           <ATUALESTTERC/>
-          <BASEICMS/>
+          <!-- <BASEICMS/> -->
           <BASEIPI/>
           <BASEISS/>
           <BASESTANT>0</BASESTANT>
@@ -420,7 +625,7 @@ class Sankhya {
           <BASESUBSTITUNITORIG/>
           <BASESUBSTSEMRED/>
           <BASICMMOD/>
-          <BASICMSTMOD/>
+          <!-- <BASICMSTMOD/> -->
           <CODANTECIPST/>
           <CODCAV/>
           <CODCFO/>
@@ -431,7 +636,7 @@ class Sankhya {
           <CODEXEC/>
           <CODLOCALDEST/>
           <CODLOCALORIG>" . $item_nota->CODLOCALORIG . "</CODLOCALORIG>
-          <CODMOTDESONERAICMS/>
+          <!-- <CODMOTDESONERAICMS/> -->
           <CODOBSPADRAO/>
           <CODPARCEXEC/>
           <CODPROC/>
@@ -461,7 +666,7 @@ class Sankhya {
           <GRUPOTRANSG/>
           <GTINNFE/>
           <GTINTRIBNFE/>
-          <IDALIQICMS/>
+          <!-- <IDALIQICMS/> -->
           <LARGURA/>
           <M3>0</M3>
           <MARCA>" . $item_nota->MARCA . "</MARCA>
@@ -475,7 +680,7 @@ class Sankhya {
           <NUNOTA>$nota</NUNOTA>
           <NUPROMOCAO/>
           <NUTAB>20</NUTAB>
-          <OBSERVACAO/>
+          <OBSERVACAO>Venda efetuada pelo site.</OBSERVACAO>
           <ORIGPROD/>
           <PENDENTE/>
           <PERCCOM/>
@@ -524,9 +729,9 @@ class Sankhya {
           <VLRDESCBONIF/>
           <VLRDESCDIGITADO/>
           <VLRDESCMOE>0</VLRDESCMOE>
-          <VLRICMS>0</VLRICMS>
-          <VLRICMSANT/>
-          <VLRICMSUFDEST>0</VLRICMSUFDEST>
+          <!-- <VLRICMS>0</VLRICMS> -->
+          <!-- <VLRICMSANT/> -->
+          <!-- <VLRICMSUFDEST>0</VLRICMSUFDEST> -->
           <VLRIPI>0</VLRIPI>
           <VLRISS/>
           <VLRLIQPROM/>
@@ -577,6 +782,20 @@ class Sankhya {
           </nota>
         </requestBody>
       </serviceRequest>", true);
+  }
+
+  function get_users () {
+    // http://sankhya.medsystems.com.br:8280/mge/service.sbr?serviceName=Pesquisa.applySearch
+    return $this->curl_call('mge/service.sbr?serviceName=Pesquisa.applySearch',
+      "<serviceRequest serviceName=\"Pesquisa.applySearch\">
+        <requestBody>
+          <pesquisa campoCriterio=\"CODPARC\" ignoreEntityCriteria=\"true\" nomeInstancia=\"Parceiro\" nomeInstanciaLocal=\"CabecalhoNota\" relationName=\"Parceiro\" showInactives=\"false\" valorCriterio=\"\">
+            <criterioLiteral>
+              <expressao>this.CODPARC &lt; 30 AND this.CLIENTE = 'S' AND this.EMAIL != ''</expressao>
+            </criterioLiteral>
+          </pesquisa>
+        </requestBody>
+      </serviceRequest>");
   }
 
   function __destruct () {
