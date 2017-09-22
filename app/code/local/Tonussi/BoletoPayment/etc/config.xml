@@ -1,0 +1,84 @@
+<?xml version="1.0"?>
+<config>
+  <modules>
+    <Tonussi_BoletoPayment>
+      <version>1.0.0.0</version>
+    </Tonussi_BoletoPayment>
+  </modules>
+
+  <global>
+    <fieldsets>
+      <sales_convert_quote_payment>
+        <boleto_sankhya_id>
+          <to_order_payment>*</to_order_payment>
+        </boleto_sankhya_id>
+        <boleto_descricao>
+          <to_order_payment>*</to_order_payment>
+        </boleto_descricao>
+      </sales_convert_quote_payment>
+    </fieldsets>
+
+    <helpers>
+      <boletopayment>
+        <class>Tonussi_BoletoPayment_Helper</class>
+      </boletopayment>
+    </helpers>
+
+    <blocks>
+      <boletopayment>
+        <class>Tonussi_BoletoPayment_Block</class>
+      </boletopayment>
+    </blocks>
+
+    <models>
+      <boletopayment>
+        <class>Tonussi_BoletoPayment_Model</class>
+      </boletopayment>
+    </models>
+
+    <resources>
+      <boletopayment_setup>
+        <setup>
+          <module>Tonussi_BoletoPayment</module>
+        </setup>
+      </boletopayment_setup>
+    </resources>
+
+    <!-- <events>
+      <catalog_product_save_after>
+        <observers>
+          <mage_productlogupdate>
+            <class>mage_productlogupdate/observer</class>
+            <method>logUpdate</method>
+            <type>singleton</type>
+          </mage_productlogupdate>
+        </observers>
+      </catalog_product_save_after>
+    </events> -->
+  </global>
+
+  <default>
+    <payment>
+      <boletopayment>
+        <active>1</active>
+        <model>boletopayment/paymentmethod</model>
+        <order_status>pending</order_status>
+        <title>BoletoPayment</title>
+        <allowspecific>0</allowspecific>
+        <payment_action>sale</payment_action>
+      </boletopayment>
+    </payment>
+  </default>
+
+  <frontend>
+    <routers>
+      <boletopayment>
+        <use>standard</use>
+        <args>
+          <module>Tonussi_BoletoPayment</module>
+          <frontName>boletopayment</frontName>
+        </args>
+      </boletopayment>
+    </routers>
+  </frontend>
+</config>
