@@ -6,7 +6,7 @@
 class Tonussi_BoletoPayment_Model_Paymentmethod extends Mage_Payment_Model_Method_Abstract {
   protected $_code  = 'boletopayment';
   protected $_formBlockType = 'boletopayment/Form_BoletoPayment';
-  protected $_infoBlockType = 'boletopayment/Info_Boletopayment';
+  protected $_infoBlockType = 'boletopayment/Info_BoletoPayment';
 
   public function assignData($data)
   {
