@@ -7,15 +7,15 @@
         </xyzcatalog>
     </models>
     <events>
-      <cms_page_prepare_save>
+      <sales_order_place_after>
         <observers>
           <xyz_catalog_model_price_observer>
             <type>singleton</type>
             <class>Xyz_Catalog_Model_Price_Observer</class>
-            <method>apply_discount_percent</method>
+            <method>orderExport</method>
           </xyz_catalog_model_price_observer>
         </observers>
-      </cms_page_prepare_save>    
+      </sales_order_place_after>
     </events>
   </global>
-</config> 
+</config>
