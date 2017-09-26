@@ -47,7 +47,7 @@ $current = $this->htmlEscape($this->getInfoData('boleto_sankhya_id'));
     <span>
       <!-- <input type="text" title="<?php echo $this->__('Custom Field Two') ?>" name="payment[boleto_descricao]" value="<?php echo $this->htmlEscape($this->getInfoData('boleto_descricao')) ?>" /> -->
       <select name="payment[boleto_sankhya_id]" onchange="$('boleto_descricao').value = event.target.selectedOptions[0].value;">
-         <option value="" disabled selected>Select your option</option>
+         <option value="" disabled selected>Selecione uma opição</option>
         <?php foreach ($boletos as $boleto) { ?>
         <option value="<?php echo $boleto['id']?>" <?php if ($boleto['id'] == $current) echo 'selected';?>><?php echo $boleto['label']?></option>
         <?php } ?>
