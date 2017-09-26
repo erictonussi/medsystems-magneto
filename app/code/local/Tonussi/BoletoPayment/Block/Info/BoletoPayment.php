@@ -10,14 +10,14 @@ class Tonussi_BoletoPayment_Block_Info_BoletoPayment extends Mage_Payment_Block_
     }
 
     $data = array();
-    if ($this->getInfo()->gettBoletoSankhyaId())
-    {
-      $data[Mage::helper('payment')->__('Custom Field One')] = $this->getInfo()->gettBoletoSankhyaId();
-    }
+    // if ($this->getInfo()->getBoletoSankhyaId())
+    // {
+    //   $data[Mage::helper('payment')->__('Custom Field One')] = $this->getInfo()->gettBoletoSankhyaId();
+    // }
 
     if ($this->getInfo()->getBoletoDescricao())
     {
-      $data[Mage::helper('payment')->__('Custom Field Two')] = $this->getInfo()->getBoletoDescricao();
+      $data[Mage::helper('payment')->__('Parcela')] = $this->getInfo()->getBoletoDescricao();
     }
 
     $transport = parent::_prepareSpecificInformation($transport);
