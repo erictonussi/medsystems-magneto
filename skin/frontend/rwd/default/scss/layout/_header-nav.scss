@@ -86,7 +86,16 @@
 
     #header-nav {
         display: block; /* Force visibility */
-        border-bottom: 1px solid $c-module-border-light;
+        // border-bottom: 1px solid $c-module-border-light;
+
+        // font-family: 'Open Sans', sans-serif;
+        line-height: 52px;
+        // text-align: center;
+
+        a.level0 {
+            color: #fff;
+            font-weight: 500;
+        }
     }
 
 }
@@ -135,7 +144,7 @@ $nav-primary-height: 30px;
 }
 
 .nav-primary li.level0 > a {
-    text-transform: uppercase;
+    // text-transform: uppercase;
 }
 
 /* ============================================ *
@@ -226,7 +235,8 @@ $nav-primary-height: 30px;
             @include menu;
             position: absolute;
             left: 0;
-            top: $nav-primary-height; /* Height of ".nav-primary a.level0" */
+            // top: $nav-primary-height; /* Height of ".nav-primary a.level0" */
+            margin-top: -10px;
             z-index: 10;
             width: 250px;
             padding-left: $box-spacing;
