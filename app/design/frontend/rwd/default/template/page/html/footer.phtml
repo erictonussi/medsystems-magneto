@@ -24,9 +24,15 @@
  * @license     http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
  */
 ?>
-<div class="footer-container">
+<div class="footer-background">
+  <div class="footer-container">
     <div class="footer">
-        <?php echo $this->getChildHtml() ?>
-        <address class="copyright"><?php echo $this->getCopyright() ?></address>
+      <div class="about">
+        <img src="<?php echo $this->getSkinUrl('images/logo-medsystems-branco.png');?>" alt="medsystems" />
+        <p>A MedSystems é uma empresa referência no mercado há mais de 14 anos, que importa e comercializa equipamentos de alta tecnologia para atender aos médicos especializados em procedimentos clínicos e estéticos.</p>
+      </div>
+      <?php echo $this->getChildHtml() ?>
+      <address class="copyright"><?php echo $this->getCopyright() ?></address>
     </div>
+  </div>
 </div>

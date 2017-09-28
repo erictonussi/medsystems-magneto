@@ -36,10 +36,17 @@
     font-family: $f-stack-special;
 }
 
+.footer-background {
+    background-color: #014b6e;
+}
+
+.footer-container {
+}
+
 .footer {
     clear: both;
     width: 100%;
-    border-top: 1px solid $c-module-border;
+    // border-top: 1px solid $c-module-border;
     padding-top: $trim;
 
     @include bp(max-width, $bp-xsmall) {
@@ -47,12 +54,13 @@
     }
 
     .block-title {
-        border-bottom: 0;
+        border: 0;
         padding: 3px 0;
     }
 
     .block-title strong {
         font-weight: normal;
+        color: white;
     }
 
     .block-title,
@@ -60,9 +68,21 @@
         color: $c-text-primary;
     }
 
+    .about {
+        float: left;
+        width: 30%;
+        color: #71afcd;
+        padding: 0 $trim*3 0 0;
+        margin-bottom: $trim;
+
+        > img {
+            margin-bottom: 20px;
+        }
+    }
+
     .links {
         float: left;
-        width: 17%;
+        width: 18%;
         padding: 0 $trim 0 0;
         margin-bottom: $trim;
 
@@ -73,7 +93,8 @@
         }
 
         a {
-            color: $c-text;
+            // color: $c-text;
+            color: #71afcd;
             &:hover {
                 color: $c-action;
             }
@@ -88,7 +109,7 @@
 
     .links,
     .block-subscribe {
-        text-transform: uppercase;
+        // text-transform: uppercase;
         font-size: $f-size-xs;
     }
 
@@ -197,9 +218,14 @@
         padding: $trim 0;
     }
 
-    @include bp(max-width, $bp-xlarge) {
+    @include bp(max-width, $bp-large) {
         $links-trim: percentage(30px / 960px);
         $links-width: (100 - ($links-trim * 3)) / 4;
+
+        .about {
+            width: 100%;
+            padding: 0;
+        }
 
         .links {
             width: $links-width;
@@ -234,7 +260,7 @@
             margin-right: 0;
         }
 
-        .links:nth-child(odd) {
+        .links:nth-child(even) {
             margin-right: $links-trim;
             clear: both;
         }

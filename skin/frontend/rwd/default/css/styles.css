@@ -3971,10 +3971,13 @@ a.skip-link {
   font-family: "Raleway", "Helvetica Neue", Verdana, Arial, sans-serif;
 }
 
+.footer-background {
+  background-color: #014b6e;
+}
+
 .footer {
   clear: both;
   width: 100%;
-  border-top: 1px solid #CCCCCC;
   padding-top: 30px;
   /* -------------------------------------------- *
    * Social icons
@@ -3986,19 +3989,30 @@ a.skip-link {
   }
 }
 .footer .block-title {
-  border-bottom: 0;
+  border: 0;
   padding: 3px 0;
 }
 .footer .block-title strong {
   font-weight: normal;
+  color: white;
 }
 .footer .block-title,
 .footer address {
   color: #3399CC;
 }
+.footer .about {
+  float: left;
+  width: 30%;
+  color: #71afcd;
+  padding: 0 90px 0 0;
+  margin-bottom: 30px;
+}
+.footer .about > img {
+  margin-bottom: 20px;
+}
 .footer .links {
   float: left;
-  width: 17%;
+  width: 18%;
   padding: 0 30px 0 0;
   margin-bottom: 30px;
 }
@@ -4008,7 +4022,7 @@ a.skip-link {
   padding: 4px 0;
 }
 .footer .links a {
-  color: #636363;
+  color: #71afcd;
 }
 .footer .links a:hover {
   color: #3399CC;
@@ -4020,7 +4034,6 @@ a.skip-link {
 }
 .footer .links,
 .footer .block-subscribe {
-  text-transform: uppercase;
   font-size: 12px;
 }
 .footer .form-subscribe-header {
@@ -4130,7 +4143,11 @@ a.skip-link {
   margin-top: 30px;
   padding: 30px 0;
 }
-@media only screen and (max-width: 1199px) {
+@media only screen and (max-width: 979px) {
+  .footer .about {
+    width: 100%;
+    padding: 0;
+  }
   .footer .links {
     width: 22.65625%;
     padding-right: 0;
@@ -4156,7 +4173,7 @@ a.skip-link {
     width: 48.4375%;
     margin-right: 0;
   }
-  .footer .links:nth-child(odd) {
+  .footer .links:nth-child(even) {
     margin-right: 3.125%;
     clear: both;
   }

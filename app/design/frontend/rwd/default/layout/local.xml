@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+<layout>
+<default>
+        <reference name="footer">
+                <remove name="footer.newsletter" />
+        </reference>
+</default>
+</layout>
