@@ -30,13 +30,21 @@
  *
  * @see Mage_Page_Block_Html_Topmenu
  */
-?>
-<?php $_menu = $this->getHtml('level-top') ?>
+$category = Mage::getModel('catalog/category')->getCollection()->addAttributeToFilter('url_key', 'consumiveis')->getFirstItem();
 
-<?php if($_menu): ?>
+$products = Mage::getModel('catalog/product')->getCollection()->addCategoryFilter($category)->addAttributeToSelect('*');
+?>
+<?php //$_menu = $this->getHtml('level-top') ?>
+
+<?php // if($_menu): ?>
     <nav id="nav">
         <ol class="nav-primary">
-            <?php echo $_menu ?>
+            <?php //echo $_menu ?>
+            <?php foreach ($products as $_product) { ?>
+               <li class="level0">
+                  <a href="<?php echo $_product->getProductUrl(); ?>" class="level0"><?php echo $_product->getName(); ?></a>
+                </li>
+            <?php } ?>
         </ol>
     </nav>
-<?php endif ?>
+<?php // endif ?>

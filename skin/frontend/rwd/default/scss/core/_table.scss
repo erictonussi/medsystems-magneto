@@ -54,8 +54,14 @@
 }
 
 .data-table thead th,
-.data-table tbody td {
+.data-table tbody tr:not(.has-description) > td {
     border-bottom: 1px solid $c-table-border;
+}
+
+.data-table tbody .product-description {
+    font-family: "Raleway", "Helvetica Neue", Verdana, Arial, sans-serif;
+    padding-top: 0;
+        font-size: 13px;
 }
 
 .data-table tbody td,

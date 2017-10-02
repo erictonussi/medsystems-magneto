@@ -53,7 +53,7 @@
         <?php $ids = []; ?>
         <?php foreach ($_associatedProducts as $_item): $ids[] = $_item->getId(); ?>
             <?php $_finalPriceInclTax = $this->helper('tax')->getPrice($_item, $_item->getFinalPrice(), true) ?>
-            <tr>
+            <tr class="has-description">
                 <!-- <td class='image' width="1">
                     <img class="thumbnail"
                          src="<?php echo $this->helper('catalog/image')->init($_item, 'thumbnail')->constrainOnly(true)->resize(105, 80); ?>"
@@ -96,6 +96,11 @@
                             <span class="price" id="super_group_<?php echo $_item->getId() ?>_total">R$0,00</span>
                         </span>
                     </div>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="4" class="product-description">
+                    <?php echo $_item->getDescription() ?>
                 </td>
             </tr>
         <?php endforeach; ?>

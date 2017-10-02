@@ -41,7 +41,14 @@
             <?php endif; ?></h1>
     </div>
     <?php echo $this->getMessagesBlock()->toHtml() ?>
-    <form action="<?php echo $this->getPostActionUrl() ?>" method="post" id="login-form" class="scaffold-form">
+    <form action="<?php echo $this->getUrl(
+        'customer/account/loginPost',
+        array(
+            'referer' =>
+            // Encode the base url, or whatever URL we want to go to
+            Mage::helper('core')->urlEncode(Mage::getBaseUrl())
+        )
+        ) ?>" method="post" id="login-form" class="scaffold-form">
         <?php echo $this->getBlockHtml('formkey'); ?>
         <div class="col2-set">
             <?php if ($this->helper('customer')->isRegistrationAllowed()): ?>

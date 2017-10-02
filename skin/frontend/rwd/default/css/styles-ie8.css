@@ -2575,8 +2575,14 @@ form .form-instructions {
 }
 
 .data-table thead th,
-.data-table tbody td {
+.data-table tbody tr:not(.has-description) > td {
   border-bottom: 1px solid #C0C0C0;
+}
+
+.data-table tbody .product-description {
+  font-family: "Raleway", "Helvetica Neue", Verdana, Arial, sans-serif;
+  padding-top: 0;
+  font-size: 13px;
 }
 
 .data-table tbody td,
@@ -4162,7 +4168,7 @@ p.product-name a:hover {
   border: 0;
 }
 .product-view .product-shop {
-  width: 50%;
+  width: 65%;
   float: right;
 }
 .product-view .product-shop .product-name {
@@ -4247,13 +4253,13 @@ p.product-name a:hover {
 }
 .product-view .add-to-cart-wrapper,
 .product-view .block-related {
-  width: 50%;
+  width: 65%;
   float: right;
   clear: right;
 }
 
 .product-img-box {
-  width: 50%;
+  width: 35%;
   float: left;
 }
 .product-img-box .product-name h1 {
