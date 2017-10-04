@@ -237,7 +237,7 @@ class Sankhya {
               <BASEIRF/>
               <HRADIAM/>
               <VLRICMSSEG/>
-              <OBSERVACAO/>
+              <OBSERVACAO>Venda efetuada pelo site.</OBSERVACAO>
               <NUPCA/>
               <DTENTSAI/>
               <STATUSNFE/>
