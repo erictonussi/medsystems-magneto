@@ -1,6 +1,6 @@
 <?php
 
-include '/api/sankhya.php';
+include Mage::getBaseDir('base').'/api/sankhya.php';
 
 
 class Xyz_Catalog_Model_Price_Observer
@@ -61,16 +61,16 @@ class Xyz_Catalog_Model_Price_Observer
 
         $sankhya = new Sankhya();
 
-        echo "parceiro: $parceiro, tipo_venda: $tipo_venda: \n";
+        //echo "parceiro: $parceiro, tipo_venda: $tipo_venda: \n";
 
         $parsed = $sankhya->criar_nota($parceiro, $tipo_venda);
-        var_dump($parsed);
+        //var_dump($parsed);
 
         $nota = (string)$parsed->responseBody->pk->NUNOTA;
         // $nota = 50181;
 
         $parsed = $sankhya->incluir_item_nota($nota, $items);
-        var_dump($parsed);
+        //var_dump($parsed);
 
         $parsed = $sankhya->confirmar_nota($nota);
         // var_dump($parsed);
@@ -83,6 +83,6 @@ class Xyz_Catalog_Model_Price_Observer
 
         // echo $orderId;
         // $payment->_toHtml();
-        die('test');
+        //die('test');
     }
 }
