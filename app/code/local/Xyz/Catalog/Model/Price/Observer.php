@@ -19,7 +19,7 @@ class Xyz_Catalog_Model_Price_Observer
         $payment = $order->getPayment();
 
         $orderId = $order->getIncrementId();
-
+        $shipping = $order->getShippingAmount();
 
         $parceiro = $order->getCustomerId();
 
@@ -63,8 +63,8 @@ class Xyz_Catalog_Model_Price_Observer
 
         //echo "parceiro: $parceiro, tipo_venda: $tipo_venda: \n";
 
-        $parsed = $sankhya->criar_nota($parceiro, $tipo_venda);
-        //var_dump($parsed);
+        $parsed = $sankhya->criar_nota($parceiro, $tipo_venda, $shipping);
+        // var_dump($parsed);
 
         $nota = (string)$parsed->responseBody->pk->NUNOTA;
         // $nota = 50181;
@@ -78,9 +78,8 @@ class Xyz_Catalog_Model_Price_Observer
         // $customerData = Mage::getModel('customer/customer')->load($customer_id);
         // $customerName = $customerData->getName();
 
-
         // echo $orderId;
         // $payment->_toHtml();
-        //die('test');
+        // die('test');
     }
 }

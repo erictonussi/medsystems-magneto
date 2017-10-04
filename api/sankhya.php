@@ -77,7 +77,7 @@ class Sankhya {
       </serviceRequest>", true);
   }
 
-  function criar_nota ($parceiro, $tipo_venda) {
+  function criar_nota ($parceiro, $tipo_venda, $frete) {
     // http://sankhya.medsystems.com.br:8280/mgecom/service.sbr?serviceName=CACSP.incluirAlterarCabecalhoNota&counter=1126141774&application=CentralNotasStack&mgeSession=E089598F488E464833FCB5B9BEE793DC&resourceID=br.com.sankhya.com.mov.CentralNotas&vss=1&globalID=591240c599604aa59c93bc70e57a6f4e&re=1
     return $this->curl_call('mgecom/service.sbr?serviceName=CACSP.incluirAlterarCabecalhoNota',
       "<serviceRequest serviceName=\"CACSP.incluirAlterarCabecalhoNota\">
@@ -326,7 +326,7 @@ class Sankhya {
               <AD_HISTORICO/>
               <DESCRHISTAC/>
               <DESCTERMACORD/>
-              <VLRFRETE/>
+              <VLRFRETE>$frete</VLRFRETE>
               <VLRINSS/>
               <PESOLIQUIMANUAL/>
               <STATUSNOTA/>
