@@ -24,5 +24,5 @@ $parsed = $sankhya->incluir_item_nota($nota, array(
 ));
 var_dump($parsed);
 
-$parsed = $sankhya->confirmar_nota($nota);
-var_dump($parsed);
+// $parsed = $sankhya->confirmar_nota($nota);
+// var_dump($parsed);

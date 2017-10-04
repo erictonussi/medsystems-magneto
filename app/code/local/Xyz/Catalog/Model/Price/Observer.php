@@ -70,12 +70,10 @@ class Xyz_Catalog_Model_Price_Observer
         // $nota = 50181;
 
         $parsed = $sankhya->incluir_item_nota($nota, $items);
-        //var_dump($parsed);
-
-        $parsed = $sankhya->confirmar_nota($nota);
         // var_dump($parsed);
 
-
+        // $parsed = $sankhya->confirmar_nota($nota);
+        // var_dump($parsed);
 
         // $customerData = Mage::getModel('customer/customer')->load($customer_id);
         // $customerName = $customerData->getName();
