@@ -2506,7 +2506,6 @@ body.customer-account .data-table .show-details .summary-collapse:hover:before {
 }
 .fieldset p.required {
   margin-bottom: 5px;
-  float: right;
   font-size: 12px;
   margin-top: 0px;
 }
@@ -7690,8 +7689,9 @@ body:not(.opc-has-progressed-from-login) .opc.opc-firststep-login .section#opc-l
   width: 115px;
 }
 .customer-account-login .col2-set .buttons-set {
-  text-align: left;
+  text-align: center;
   border-top: 0;
+  width: 70%;
 }
 .customer-account-login .col2-set .buttons-set button,
 .customer-account-login .col2-set .buttons-set .button {
@@ -7700,8 +7700,6 @@ body:not(.opc-has-progressed-from-login) .opc.opc-firststep-login .section#opc-l
   margin: 0;
 }
 .customer-account-login .col2-set .col-1 ul {
-  list-style: disc;
-  padding-left: 20px;
   margin: 10px 0 20px 0;
 }
 @media only screen and (min-width: 480px) {
@@ -9831,9 +9829,6 @@ div.paypal-logo span > img {
   border: none;
 }
 
-#contactForm {
-  padding-left: 40px;
-}
 #contactForm h2 {
   display: none;
 }

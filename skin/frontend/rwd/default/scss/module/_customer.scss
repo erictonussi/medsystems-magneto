@@ -36,8 +36,9 @@
 
     .col2-set {
         .buttons-set {
-            text-align: left;
+            text-align: center;
             border-top: 0;
+            width: 70%;
 
             button,
             .button {
@@ -49,8 +50,8 @@
 
         .col-1 {
             ul {
-                list-style: disc;
-                padding-left: 20px;
+                // list-style: disc;
+                // padding-left: 20px;
                 margin: $gap 0 $gap * 2 0;
             }
         }
