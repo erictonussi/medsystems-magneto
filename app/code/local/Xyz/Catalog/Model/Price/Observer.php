@@ -67,10 +67,15 @@ class Xyz_Catalog_Model_Price_Observer
         // var_dump($parsed);
 
         $nota = (string)$parsed->responseBody->pk->NUNOTA;
-        // $nota = 50181;
+        $nota = 50181;
 
-        $parsed = $sankhya->incluir_item_nota($nota, $items);
+        // $parsed = $sankhya->incluir_item_nota($nota, $items);
         // var_dump($parsed);
+
+        // echo $nota;
+        $order->setSankhyaNota($nota);//->save();
+
+        // die('s2: '.$order->getSankhyaNota());
 
         // $parsed = $sankhya->confirmar_nota($nota);
         // var_dump($parsed);
@@ -81,5 +86,15 @@ class Xyz_Catalog_Model_Price_Observer
         // echo $orderId;
         // $payment->_toHtml();
         // die('test');
+    }
+
+    public function saveCustomData($observer)
+    {
+        $event = $observer->getEvent();
+        $order = $event->getOrder();
+        // $fieldVal = Mage::app()->getFrontController()->getRequest()->getParams();
+        // $order->setDeliveryDate($fieldVal['delivery_date']);
+        $order->setSankhyaNota(666);
+        // die('s: '.$order->getSankhyaNota());
     }
 }
