@@ -119,8 +119,8 @@ class Mage_Core_Model_Email_Template extends Mage_Core_Model_Email_Template_Abst
             "username" => 'contato@kavecode.com.br',
             "password" => '@pepenny'
         );
-        echo $my_smtp_host;
-        var_dump($config);
+        // echo $my_smtp_host;
+        // var_dump($config);
         $transport = new Zend_Mail_Transport_Smtp($my_smtp_host, $config);
         Zend_Mail::setDefaultTransport($transport);
 

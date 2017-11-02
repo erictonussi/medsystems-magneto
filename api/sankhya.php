@@ -10,7 +10,7 @@ class Sankhya {
       '<serviceRequest serviceName="MobileLoginSP.login">
           <requestBody>
             <NOMUSU>lojav</NOMUSU>
-            <INTERNO>159753</INTERNO>
+            <INTERNO>07etlp01</INTERNO>
           </requestBody>
         </serviceRequest>');
 
@@ -796,6 +796,77 @@ class Sankhya {
           </pesquisa>
         </requestBody>
       </serviceRequest>");
+  }
+
+  // http://sankhya.medsystems.com.br:8280/mge/service.sbr?serviceName=CRUDServiceProvider.loadRecords
+  function consulta_pedidos ($notas) {
+    return $this->curl_call('mge/service.sbr?serviceName=CRUDServiceProvider.loadRecords',
+      '<serviceRequest serviceName="CRUDServiceProvider.loadRecords">
+        <requestBody>
+          <dataSet crudListener="br.com.sankhya.modelcore.dwfdata.listeners.tgf.CabecalhoNotaListenerAdapter" datasetid="1507817435280_8" includePresentationFields="S" parallelLoader="true" rootEntity="CabecalhoNota">
+            <entity path="">
+              <fieldset list="*"/>
+              <fieldset except="true" list="CODTPD,CODVTP"/>
+              <fieldset except="true" list="DHTIPVENDA,DHTIPOPER"/>
+            </entity>
+            <!--entity path="TipoOperacao">
+              <fieldset list="DESCROPER,NFSE,SOLCOMPRA,ATUALFIN,ATUALEST,CODMODDOC,BASENUMERACAO,NFE"/>
+              <fieldset list="DESCROPER,NFSE,SOLCOMPRA"/>
+            </entity>
+            <entity path="Parceiro">
+              <fieldset list="NOMEPARC,TIPOFATUR"/>
+            </entity>
+            <entity path="Contato">
+              <field name="NOMECONTATO"/>
+            </entity>
+            <entity path="Natureza">
+              <field name="DESCRNAT"/>
+            </entity>
+            <entity path="Empresa">
+              <field name="NOMEFANTASIA"/>
+            </entity>
+            <entity path="Empresa.EmpresaFinanceiro">
+              <field name="NFSE"/>
+              <field name="PRZREGCANNOTA"/>
+              <field name="PRZTOLCANNOTA"/>
+              <field name="TEMDENUESPONT"/>
+            </entity>
+            <entity path="TipoNegociacao">
+              <fieldset list="DESCRTIPVENDA,FIXAVENC"/>
+            </entity>
+            <entity path="Vendedor">
+              <field name="APELIDO"/>
+            </entity>
+            <entity path="Funcionario">
+              <field name="NOMEFUNC"/>
+            </entity>
+            <entity path="Transportadora">
+              <field name="NOMEPARC"/>
+            </entity>
+            <entity path="Moeda">
+              <field name="NOMEMOEDA"/>
+            </entity>
+            <entity path="LoteNotaFiscalEletronica">
+              <field name="NUMRECEB"/>
+              <field name="DHRECEB"/>
+            </entity>
+            <entity path="Empresa.Cidade.UnidadeFederativa">
+              <field name="UF"/>
+            </entity>
+            <entity path="Projeto">
+              <field name="IDENTIFICACAO"/>
+            </entity-->
+            <criteria>
+              <expression>(NOT EXISTS (SELECT NUNOTA FROM TGFCAN WHERE TGFCAN.NUNOTA = this.NUNOTA) AND this.TIPMOV IN (?, ?, ?, ?) AND this.NUNOTA in (' . join($notas, ',') . '))</expression>
+              <parameter type="S">P</parameter>
+              <parameter type="S">V</parameter>
+              <parameter type="S">D</parameter>
+              <parameter type="S">A</parameter>
+              <!--parameter type="N">50215</parameter-->
+            </criteria>
+          </dataSet>
+        </requestBody>
+      </serviceRequest>', true);
   }
 
   function __destruct () {

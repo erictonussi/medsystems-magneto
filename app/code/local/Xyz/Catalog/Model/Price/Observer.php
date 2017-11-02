@@ -61,13 +61,13 @@ class Xyz_Catalog_Model_Price_Observer
 
         $sankhya = new Sankhya();
 
-        //echo "parceiro: $parceiro, tipo_venda: $tipo_venda: \n";
+        echo "parceiro: $parceiro, tipo_venda: $tipo_venda:, shipping: , $shipping \n";
 
         $parsed = $sankhya->criar_nota($parceiro, $tipo_venda, $shipping);
-        // var_dump($parsed);
+        var_dump($parsed); die();
 
         $nota = (string)$parsed->responseBody->pk->NUNOTA;
-        $nota = 50181;
+        // $nota = 50239;
 
         // $parsed = $sankhya->incluir_item_nota($nota, $items);
         // var_dump($parsed);
@@ -93,8 +93,9 @@ class Xyz_Catalog_Model_Price_Observer
         $event = $observer->getEvent();
         $order = $event->getOrder();
         // $fieldVal = Mage::app()->getFrontController()->getRequest()->getParams();
+        // var_dump($fieldVal);
         // $order->setDeliveryDate($fieldVal['delivery_date']);
-        $order->setSankhyaNota(666);
+        // $order->setSankhyaNota($fieldVal['sankhya_nota']);
         // die('s: '.$order->getSankhyaNota());
     }
 }
