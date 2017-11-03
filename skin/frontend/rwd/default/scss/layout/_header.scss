@@ -30,13 +30,18 @@
 @include bp(min-width, $bp-medium + 1) {
 
     .page-header {
+        background-image: url(../images/medsystems-header-bg.jpg);
+    }
+
+    .page-header-container {
+        position: relative;
         max-width: $max-container-width;
         margin: 0 auto;
         padding: 0 $trim;
     }
 
-    .page-header-container {
-        position: relative;
+    .header-menu {
+        background: #014b6e;
     }
 
 }
@@ -332,8 +337,8 @@ a.skip-link {
 
 .account-cart-wrapper {
     position: absolute;
-    top:0px;
-    right:0px;
+    top: 10px;
+    right: 10px;
 
     @include bp(max-width, $bp-medium) {
         position: static;

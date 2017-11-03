@@ -25,13 +25,12 @@
  */
 ?>
 <div id="messages_product_view"><?php echo $this->getMessagesBlock()->toHtml() ?></div>
-<div class="page-title">
-    <h1><?php echo Mage::helper('contacts')->__('Contact Us') ?></h1>
-</div>
+<!-- <div class="page-title"> -->
+    <h2><?php echo Mage::helper('contacts')->__('Contact Us') ?></h2>
+<!-- </div> -->
 <form action="<?php echo $this->getFormAction(); ?>" id="contactForm" method="post" class="scaffold-form">
     <div class="fieldset">
         <h2 class="legend"><?php echo Mage::helper('contacts')->__('Contact Information') ?></h2>
-        <p class="required"><?php echo Mage::helper('contacts')->__('* Required Fields') ?></p>
         <ul class="form-list">
             <li class="fields">
                 <div class="field">
@@ -40,6 +39,8 @@
                         <input name="name" id="name" title="<?php echo Mage::helper('core')->quoteEscape(Mage::helper('contacts')->__('Name')) ?>" value="<?php echo $this->escapeHtml($this->helper('contacts')->getUserName()) ?>" class="input-text required-entry" type="text" />
                     </div>
                 </div>
+            </li>
+            <li>
                 <div class="field">
                     <label for="email" class="required"><em>*</em><?php echo Mage::helper('contacts')->__('Email') ?></label>
                     <div class="input-box">
@@ -56,10 +57,10 @@
             <li class="wide">
                 <label for="comment" class="required"><em>*</em><?php echo Mage::helper('contacts')->__('Comment') ?></label>
                 <div class="input-box">
-                    <textarea name="comment" id="comment" title="<?php echo Mage::helper('core')->quoteEscape(Mage::helper('contacts')->__('Comment')) ?>" class="required-entry input-text" cols="5" rows="3"></textarea>
-                </div>
+                    <textarea name="comment" id="comment" title="<?php echo Mage::helper('core')->quoteEscape(Mage::helper('contacts')->__('Comment')) ?>" class="required-entry input-text" cols="5" rows="3" style="width: 365px; "></textarea> </div>
             </li>
         </ul>
+        <p class="required"><?php echo Mage::helper('contacts')->__('* Required Fields') ?></p>
     </div>
     <div class="buttons-set">
         <input type="text" name="hideit" id="hideit" value="" style="display:none !important;" />

@@ -28,7 +28,7 @@
  */
 ?>
 
-<div class="header-language-background">
+<!-- <div class="header-language-background">
     <div class="header-language-container">
         <div class="store-language-container">
             <?php echo $this->getChildHtml('store_language') ?>
@@ -38,7 +38,7 @@
 
         <p class="welcome-msg"><?php echo $this->getChildHtml('welcome') ?> <?php echo $this->getChildHtml('accountLinks') ?></p>
     </div>
-</div>
+</div> -->
 
 <header id="header" class="page-header">
     <div class="page-header-container">
@@ -54,6 +54,7 @@
         <!-- Skip Links -->
 
         <div class="skip-links">
+
             <a href="#header-nav" class="skip-link skip-nav">
                 <span class="icon"></span>
                 <span class="label"><?php echo $this->__('Menu'); ?></span>
@@ -75,27 +76,28 @@
                 <div class="header-minicart">
                     <?php echo $this->getChildHtml('minicart_head'); ?>
                 </div>
+
+                <!-- Account -->
+                <div id="header-account" class="skip-content">
+                    <?php echo $this->getChildHtml('topLinks') ?>
+                </div>
             </div>
 
 
         </div>
+    </div>
+    <div class="header-menu">
+        <div class="page-header-container">
+            <!-- Navigation -->
 
-        <!-- Navigation -->
+            <div id="header-nav" class="skip-content">
+                <?php echo $this->getChildHtml('topMenu') ?>
+            </div>
 
-        <div id="header-nav" class="skip-content">
-            <?php echo $this->getChildHtml('topMenu') ?>
-        </div>
-
-        <!-- Search -->
-
-        <div id="header-search" class="skip-content">
-            <?php echo $this->getChildHtml('topSearch') ?>
-        </div>
-
-        <!-- Account -->
-
-        <div id="header-account" class="skip-content">
-            <?php echo $this->getChildHtml('topLinks') ?>
+            <!-- Search -->
+            <div id="header-search" class="skip-content">
+                <?php echo $this->getChildHtml('topSearch') ?>
+            </div>
         </div>
     </div>
 </header>

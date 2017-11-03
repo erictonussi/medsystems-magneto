@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <Tonussi_CpfLogin>
+            <version>0.0.1</version>
+        </Tonussi_CpfLogin>
+    </modules>
+    <!-- <frontend>
+        <routers>
+            <customer>
+                <args>
+                    <modules>
+                        <Tonussi_CpfLogin before-="Mage_Customer">Tonussi_CpfLogin</Tonussi_CpfLogin>
+                    </modules>
+                </args>
+            </customer>
+        </routers>
+    </frontend> -->
+    <global>
+       <models>
+          <customer>
+              <rewrite>
+                  <customer>Tonussi_CpfLogin_Model_Customer</customer>
+              </rewrite>
+          </customer>
+       </models>
+    </global>
+</config>

@@ -41,12 +41,11 @@
             <?php endif; ?></h1>
     </div>
     <?php echo $this->getMessagesBlock()->toHtml() ?>
-    <form action="<?php echo $this->getPostActionUrl() ?>" method="post" id="login-form" class="scaffold-form">
-        <?php echo $this->getBlockHtml('formkey'); ?>
+
         <div class="col2-set">
             <?php if ($this->helper('customer')->isRegistrationAllowed()): ?>
             <div class="col-1 new-users">
-                <div class="content">
+                <!-- <div class="content">
                     <h2><?php echo $this->__('New Here?') ?></h2>
                     <p class="form-instructions"><?php echo $this->__('Registration is free and easy!') ?></p>
                     <ul class="benefits">
@@ -57,22 +56,38 @@
                 </div>
                 <div class="buttons-set">
                     <a title="<?php echo $this->quoteEscape($this->__('Create an Account')) ?>" class="button" href="<?php echo Mage::helper('persistent')->getCreateAccountUrl($this->getCreateAccountUrl()) ?>"><span><span><?php echo $this->__('Create an Account') ?></span></span></a>
-                </div>
+                </div> -->
+                <?php echo $this->getLayout()->createBlock('core/template')->setTemplate('contacts/form.phtml')->toHtml(); ?>
             </div>
             <?php endif; ?>
             <?php // This column should be col-1 if the registration column is not displayed ?>
+        <form action="<?php echo $this->getUrl(
+            'customer/account/loginPost',
+            array(
+                'referer' =>
+                // Encode the base url, or whatever URL we want to go to
+                Mage::helper('core')->urlEncode(Mage::getBaseUrl())
+            )
+        ) ?>" method="post" id="login-form" class="scaffold-form">
+            <?php echo $this->getBlockHtml('formkey'); ?>
             <div class="<?php if ($this->helper('customer')->isRegistrationAllowed()): ?>col-2<?php else: ?>col-1<?php endif; ?> registered-users">
                 <div class="content fieldset">
                     <h2><?php echo $this->__('Already registered?') ?></h2>
                     <p class="form-instructions"><?php echo $this->__('If you have an account with us, please log in.') ?></p>
-                    <p class="required"><?php echo $this->__('* Required Fields') ?></p>
                     <ul class="form-list">
                         <li>
+                            <label for="username" class="required"'><em>*</em><?php echo $this->__('Tax/VAT number') ?></label>
+                            <div class="input-box">
+                                <input type="text" id="username" name="login[username]" value="<?php echo $this->escapeHtml($this->getTaxvat()) ?>" title="<?php echo Mage::helper('core')->quoteEscape($this->__('Tax/VAT number')) ?>" class="input-text <?php echo $this->helper('customer/address')->getAttributeValidationClass('taxvat') ?>" <?php echo $this->getFieldParams() ?> />
+                            </div>
+
+                        </li>
+                        <!-- <li>
                             <label for="email" class="required"><em>*</em><?php echo $this->__('Email Address') ?></label>
                             <div class="input-box">
                                 <input type="email" autocapitalize="off" autocorrect="off" spellcheck="false" name="login[username]" value="<?php echo $this->escapeHtml($this->getUsername()) ?>" id="email" class="input-text required-entry validate-email" title="<?php echo $this->quoteEscape($this->__('Email Address')) ?>" />
                             </div>
-                        </li>
+                        </li> -->
                         <li>
                             <label for="pass" class="required"><em>*</em><?php echo $this->__('Password') ?></label>
                             <div class="input-box">
@@ -80,22 +95,24 @@
                             </div>
                         </li>
                         <?php echo $this->getChildHtml('form.additional.info'); ?>
-                        <li>
+                        <!-- <li>
                             <a href="<?php echo $this->getForgotPasswordUrl() ?>" class="f-left"><?php echo $this->__('Forgot Your Password?') ?></a>
-                        </li>
+                        </li> -->
                         <?php echo $this->getChildHtml('persistent.remember.me'); ?>
                     </ul>
+                    <p class="required"><?php echo $this->__('* Required Fields') ?></p>
                     <?php echo $this->getChildHtml('persistent.remember.me.tooltip'); ?>
                 </div>
                 <div class="buttons-set">
                     <button type="submit" class="button" title="<?php echo $this->quoteEscape($this->__('Login')) ?>" name="send" id="send2"><span><span><?php echo $this->__('Login') ?></span></span></button>
+                    <p><a href="<?php echo $this->getForgotPasswordUrl() ?>" class="f-left"><?php echo $this->__('Forgot Your Password?') ?></a></p>
                 </div>
             </div>
+        </form>
         </div>
         <?php if (Mage::helper('checkout')->isContextCheckout()): ?>
             <input name="context" type="hidden" value="checkout" />
         <?php endif; ?>
-    </form>
     <script type="text/javascript">
     //<![CDATA[
         var dataForm = new VarienForm('login-form', true);

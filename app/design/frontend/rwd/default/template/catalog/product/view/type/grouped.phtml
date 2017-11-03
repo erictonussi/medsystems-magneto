@@ -36,38 +36,34 @@
 <?php $_associatedProducts = $this->getAssociatedProducts(); ?>
 <?php $_hasAssociatedProducts = count($_associatedProducts) > 0; ?>
 <?php echo $this->getChildHtml('product_type_data_extra') ?>
-<div class="grouped-items-table-wrapper">
+<div id="form" class="grouped-items-table-wrapper">
     <table class="data-table grouped-items-table" id="super-product-table">
         <col />
         <col />
         <col />
+        <col />
+        <thead>
+            <th>Produto</th>
+            <th class="a-center">Preço</th>
+            <th class="a-center">Quantidade</th>
+            <th class="a-right">Subtotal</th>
+        </thead>
         <tbody>
         <?php if ($_hasAssociatedProducts): ?>
-        <?php foreach ($_associatedProducts as $_item): ?>
+        <?php $ids = []; ?>
+        <?php foreach ($_associatedProducts as $_item): $ids[] = $_item->getId(); ?>
             <?php $_finalPriceInclTax = $this->helper('tax')->getPrice($_item, $_item->getFinalPrice(), true) ?>
-            <tr>
-                <td class='image'>
+            <tr class="has-description">
+                <!-- <td class='image' width="1">
                     <img class="thumbnail"
                          src="<?php echo $this->helper('catalog/image')->init($_item, 'thumbnail')->constrainOnly(true)->resize(105, 80); ?>"
                          alt="<?php echo $this->escapeHtml($this->getImageLabel()) ?>"
                          title="<?php echo $this->escapeHtml($this->getImageLabel()); ?>" />
-                </td>
+                </td> -->
                 <td class="name">
                     <p class="name-wrapper">
                         <?php echo $this->escapeHtml($_item->getName()) ?>
                     </p>
-                    <?php if ($_product->isSaleable()): ?>
-                    <div class="qty-wrapper">
-                        <?php if ($_item->isSaleable()) : ?>
-                            <input id="super_group_<?php echo $_item->getId() ?>" type="text" pattern="\d*(\.\d+)?" name="super_group[<?php echo $_item->getId() ?>]" maxlength="12" value="<?php echo $_item->getQty() * 1 ?>" title="<?php echo Mage::helper('core')->quoteEscape($this->__('Qty')) ?>" class="input-text qty" />
-                            <label for="super_group_<?php echo $_item->getId() ?>" class="qty-label">
-                                <?php echo $this->__('Quantity'); ?>
-                            </label>
-                        <?php else: ?>
-                            <p class="availability out-of-stock"><span><?php echo $this->__('Out of stock') ?></span></p>
-                        <?php endif; ?>
-                    </div>
-                    <?php endif; ?>
                 </td>
                 <?php if ($this->getCanShowProductPrice($_product)): ?>
                 <td class="a-right">
@@ -77,8 +73,47 @@
                     <?php endif; ?>
                 </td>
                 <?php endif; ?>
+                <td align="center" class="nowrap">
+                    <?php if ($_product->isSaleable()): ?>
+                    <div class="qty-wrapper">
+                        <?php if ($_item->isSaleable()) : ?>
+                            <button type="button" class="button" onclick="decValue('<?php echo $_item->getId() ?>')">-</button>
+                            <input id="super_group_<?php echo $_item->getId() ?>" type="text" pattern="\d*(\.\d+)?" name="super_group[<?php echo $_item->getId() ?>]" maxlength="12" value="<?php echo $_item->getQty() * 1 ?>" title="<?php echo Mage::helper('core')->quoteEscape($this->__('Qty')) ?>" onkeyup="changeValue('<?php echo $_item->getId() ?>', this.value)"  class="input-text qty" />
+                            <button type="button" class="button" onclick="incValue('<?php echo $_item->getId() ?>')">+</button>
+                            <!-- <label for="super_group_<?php echo $_item->getId() ?>" class="qty-label">
+                                <?php echo $this->__('Quantity'); ?>
+                            </label> -->
+                        <?php else: ?>
+                            <p class="availability out-of-stock"><span><?php echo $this->__('Out of stock') ?></span></p>
+                        <?php endif; ?>
+                    </div>
+                    <?php endif; ?>
+                </td>
+                <td class="a-right">
+                    <input id="super_group_<?php echo $_item->getId() ?>_price" type="hidden" name="" value="<?php echo ($_item->getPrice()) ?>">
+                    <div class="price-box">
+                        <span class="regular-price">
+                            <span class="price" id="super_group_<?php echo $_item->getId() ?>_total">R$0,00</span>
+                        </span>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="4" class="product-description">
+                    <?php echo $_item->getDescription() ?>
+                </td>
             </tr>
         <?php endforeach; ?>
+            <tr>
+                <td id="total" colspan="4" class="a-right">
+                    <div class="price-box">
+                        <span class="regular-price">
+                            <input id="ids" type="hidden" name="" value="<?php echo join(",", $ids); ?>">
+                            <span class="price" id="total_geral">R$0,00</span>
+                        </span>
+                    </div>
+                </td>
+            </tr>
         <?php else: ?>
            <tr>
                <td colspan="<?php if ($_product->isSaleable()): ?>4<?php else : ?>3<?php endif; ?>"><?php echo $this->__('No options of this product are available.') ?></td>
@@ -87,4 +122,28 @@
         </tbody>
     </table>
 </div>
-<script type="text/javascript">decorateTable('super-product-table')</script>
+<script type="text/javascript">
+    decorateTable('super-product-table');
+    function changeValue(id, value) {
+        if ( value >= 0) {
+            $('super_group_'+id).value = value;
+            $('super_group_'+id+'_total').innerHTML = 'R$' + ($('super_group_'+id+'_price').value * value).toFixed(2).replace('.', ',');
+            // $('super_group_'+id);
+            // 15.0000.toFixed(2).replace('.', ',')
+        }
+        var ids = $('ids').value.split(',');
+        var total = 0;
+        for (var i = ids.length - 1; i >= 0; i--) {
+            var id = ids[i];
+            total += $('super_group_'+id+'_price').value * $('super_group_'+id).value;
+        }
+        $('total_geral').innerHTML = 'R$' + total.toFixed(2).replace('.', ',');
+    }
+    function incValue(id) {
+        changeValue(id, parseInt($('super_group_'+id).value) + 1);
+    }
+    function decValue(id) {
+        changeValue(id, parseInt($('super_group_'+id).value) - 1);
+    }
+
+</script>

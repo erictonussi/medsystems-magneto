@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<config>
+  <depends>
+    <Mage_Payment />
+  </depends>
+  <modules>
+    <Tonussi_BoletoPayment>
+      <active>true</active>
+      <codePool>local</codePool>
+    </Tonussi_BoletoPayment>
+    <Tonussi_CpfLogin>
+       <active>true</active>
+       <codePool>local</codePool>
+    </Tonussi_CpfLogin>
+  </modules>
+</config>

@@ -2,3 +2,9 @@ var/
 var/*
 /media/
 app/etc/local.xml
+api/config.json
+api/backup/*
+skin/frontend/rwd/default/scss/.sass-cache
+errors/local.xml
+downloader/cache.cfg
+.modgit/

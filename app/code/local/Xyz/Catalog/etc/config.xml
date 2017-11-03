@@ -7,15 +7,31 @@
         </xyzcatalog>
     </models>
     <events>
-      <cms_page_prepare_save>
+      <sales_order_place_after>
         <observers>
           <xyz_catalog_model_price_observer>
             <type>singleton</type>
             <class>Xyz_Catalog_Model_Price_Observer</class>
-            <method>apply_discount_percent</method>
+            <method>orderExport</method>
           </xyz_catalog_model_price_observer>
         </observers>
-      </cms_page_prepare_save>    
+      </sales_order_place_after>
+      <checkout_type_onepage_save_order>
+        <observers>
+            <delivery_date_observer>
+                <type>singleton</type>
+                <class>Xyz_Catalog_Model_Price_Observer</class>
+                <method>saveCustomData</method>
+            </delivery_date_observer>
+        </observers>
+      </checkout_type_onepage_save_order>
     </events>
+    <fieldsets>
+      <sales_convert_quote>
+        <sankhya_nota>
+          <to_order>*</to_order>
+        </sankhya_nota>
+      </sales_convert_quote>
+    </fieldsets>
   </global>
-</config> 
+</config>
