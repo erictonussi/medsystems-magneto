@@ -72,7 +72,7 @@
         float: left;
         width: 30%;
         color: #71afcd;
-        padding: 0 $trim*3 0 0;
+        padding: 0 ($trim*1.5) 0 0;
         margin-bottom: $trim;
 
         > img {
@@ -82,7 +82,7 @@
 
     .links {
         float: left;
-        width: 18%;
+        width: 15%;
         padding: 0 $trim 0 0;
         margin-bottom: $trim;
 
@@ -220,7 +220,7 @@
 
     @include bp(max-width, $bp-large) {
         $links-trim: percentage(30px / 960px);
-        $links-width: (100 - ($links-trim * 3)) / 4;
+        $links-width: (85 - ($links-trim * 3)) / 4;
 
         .about {
             width: 100%;
@@ -271,4 +271,11 @@
             width: 100%;
         }
     }
+
+    .siteseal {
+        img {
+            margin: auto;
+        }
+    }
+
 }
