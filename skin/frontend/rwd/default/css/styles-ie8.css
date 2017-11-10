@@ -2910,6 +2910,7 @@ a.skip-link {
   display: block;
   /* Force visibility */
   line-height: 52px;
+  min-height: 15px;
 }
 #header-nav a.level0 {
   color: #fff;

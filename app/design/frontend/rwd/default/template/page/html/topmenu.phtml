@@ -38,13 +38,14 @@ $products = Mage::getModel('catalog/product')->getCollection()->addCategoryFilte
 
 <?php // if($_menu): ?>
     <nav id="nav">
+        <?php if(Mage::getSingleton('customer/session')->isLoggedIn()){ ?>
         <ol class="nav-primary">
-            <?php //echo $_menu ?>
             <?php foreach ($products as $_product) { ?>
                <li class="level0">
                   <a href="<?php echo $_product->getProductUrl(); ?>" class="level0"><?php echo $_product->getName(); ?></a>
                 </li>
             <?php } ?>
         </ol>
+        <?php } ?>
     </nav>
 <?php // endif ?>

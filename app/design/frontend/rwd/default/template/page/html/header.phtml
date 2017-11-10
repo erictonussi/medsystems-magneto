@@ -95,9 +95,11 @@
             </div>
 
             <!-- Search -->
+            <?php if(Mage::getSingleton('customer/session')->isLoggedIn()){ ?>
             <div id="header-search" class="skip-content">
                 <?php echo $this->getChildHtml('topSearch') ?>
             </div>
+            <?php } ?>
         </div>
     </div>
 </header>
