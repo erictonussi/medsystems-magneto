@@ -82,8 +82,7 @@
 
     .links {
         float: left;
-        width: 15%;
-        padding: 0 $trim 0 0;
+        padding: 0 ($trim*1.5) 0 0;
         margin-bottom: $trim;
 
         li {
