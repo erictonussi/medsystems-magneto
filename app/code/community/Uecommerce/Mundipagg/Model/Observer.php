@@ -234,7 +234,7 @@ class Uecommerce_Mundipagg_Model_Observer extends Uecommerce_Mundipagg_Model_Sta
         $active = Mage::getStoreConfig('payment/' . $code . '/active');
         $thereIsrecurrentProduct = $this->checkRecurrence($session->getQuote());
         $isMundipagg = strpos($code, "mundipagg_");
-        
+
         //0 => First string position = true.
         if ($isMundipagg === 0 &&
             $thereIsrecurrentProduct &&
@@ -243,7 +243,7 @@ class Uecommerce_Mundipagg_Model_Observer extends Uecommerce_Mundipagg_Model_Sta
             $this->switchPaymentMethods($code, $result, $session->getQuote(), true);
         }
     }
-    
+
     /**
      * Enable/disable Mundipagg payment methods for recurrence
      * @param string $code
@@ -253,12 +253,12 @@ class Uecommerce_Mundipagg_Model_Observer extends Uecommerce_Mundipagg_Model_Sta
     {
         $itemAlone = $this->checkItemAlone($quote);
         $recurenceMix = $this->checkRecurrenceMix($quote);
-        
+
         if ($recurenceMix && $itemAlone) {
             $result->isAvailable = true;
             return;
         }
-        
+
         switch ($code) {
             case 'mundipagg_boleto':
             case 'mundipagg_debit':
@@ -351,7 +351,7 @@ class Uecommerce_Mundipagg_Model_Observer extends Uecommerce_Mundipagg_Model_Sta
     private function checkRecurrenceConflicts($observer)
     {
         $event = $observer->getEvent();
-        
+
         if ($event->getQuoteItem()) {
             $quote = $event->getQuoteItem()->getQuote();
         } else {
@@ -710,7 +710,7 @@ class Uecommerce_Mundipagg_Model_Observer extends Uecommerce_Mundipagg_Model_Sta
             $session = Mage::getSingleton('checkout/session');
             $session->setMundipaggRecurrency($option);
     }
-        
+
     public function checkModuleVersion()
     {
         $localModuleVersion = $this->readModuleVersion();
@@ -766,7 +766,7 @@ class Uecommerce_Mundipagg_Model_Observer extends Uecommerce_Mundipagg_Model_Sta
         $_response = curl_exec($ch);
 
         if (curl_errno($ch)) {
-            $helperLog->info(curl_error($ch));
+            // $helperLog->info(curl_error($ch));
         }
         $response = (json_decode($_response));
         return str_replace("v", "", $response[0]->tag_name);
