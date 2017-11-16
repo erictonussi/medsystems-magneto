@@ -69,7 +69,7 @@ class Xyz_Catalog_Model_Price_Observer
         $nota = (string)$parsed->responseBody->pk->NUNOTA;
         // $nota = 50239;
 
-        // $parsed = $sankhya->incluir_item_nota($nota, $items);
+        $parsed = $sankhya->incluir_item_nota($nota, $items);
         // var_dump($parsed);
 
         // echo $nota;
