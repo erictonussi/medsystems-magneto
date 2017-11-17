@@ -31,13 +31,12 @@
 <div class="page-title">
     <h1><?php echo Mage::helper('mundipagg')->__('Payment error')?></h1>
     <?php
-      $lastOrderId = Mage::getSingleton('checkout/session')
-       ->getLastRealOrderId();
-
-      $order = Mage::getModel('sales/order')
-       ->loadByIncrementId($lastOrderId);
+      $orders = Mage::getModel('sales/order')->getCollection()
+       ->setOrder('increment_id','DESC')
+       ->setPageSize(1)
+       ->getFirstItem();
     ?>
-    <a href="<?php echo $this->getReorderUrl($order) ?>" class="link-reorder"><?php echo $this->__('Reorder') ?></a>
+    <a href="/sales/order/reorder/order_id/<?php echo $orders->getEntityId()?>/" class="link-reorder">Readicionar pedido ao Carrinho</a>
 </div>
 <div class="buttons-set">
     <button type="button" class="button" title="<?php echo $this->__('Continue Shopping') ?>" onclick="window.location='<?php echo $this->getUrl() ?>'"><span><span><?php echo $this->__('Continue Shopping') ?></span></span></button>
