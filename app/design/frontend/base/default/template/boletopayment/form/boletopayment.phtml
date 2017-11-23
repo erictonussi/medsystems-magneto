@@ -4,9 +4,9 @@ $boletos = array(
   // array('id' => 25, 'label' => "VENDA A PRAZO 21 DIAS / BOLETO"),
   // array('id' => 208, 'label' => "VENDAS BOLETO 7"),
   // array('id' => 209, 'label' => "VENDAS BOLETO 15"),
-  array('id' => 550, 'label' => "BOLETO 1x"),
-  array('id' => 600, 'label' => "BOLETO 2x"),
-  array('id' => 610, 'label' => "BOLETO 3x"),
+  array('id' => 550, 'label' => "Boleto 1 x R$ %s", 'parcel' => 1),
+  array('id' => 600, 'label' => "Boleto 2 x R$ %s", 'parcel' => 2),
+  array('id' => 610, 'label' => "Boleto 3 x R$ %s", 'parcel' => 3),
   // array('id' => 620, 'label' => "BOLETO 1+3"),
   // array('id' => 630, 'label' => "BOLETO 1+4"),
   // array('id' => 640, 'label' => "BOLETO 1+5"),
@@ -33,6 +33,7 @@ $boletos = array(
   // array('id' => 754, 'label' => "BOLETO 1+10")
 );
 $current = $this->htmlEscape($this->getInfoData('boleto_sankhya_id'));
+$_grandTotal = Mage::helper('checkout/cart')->getQuote()->getGrandTotal();
 ?>
 
 <div class="form-list" id="payment_form_<?php echo $this->getMethodCode() ?>" style="display:none;">
@@ -49,8 +50,8 @@ $current = $this->htmlEscape($this->getInfoData('boleto_sankhya_id'));
       <!-- <input type="text" title="<?php echo $this->__('Custom Field Two') ?>" name="payment[boleto_descricao]" value="<?php echo $this->htmlEscape($this->getInfoData('boleto_descricao')) ?>" /> -->
       <select name="payment[boleto_sankhya_id]" onchange="$('boleto_descricao').value = event.target.selectedOptions[0].label;">
          <option value="" disabled selected>Selecione uma opição</option>
-        <?php foreach ($boletos as $boleto) { ?>
-        <option value="<?php echo $boleto['id']?>" <?php if ($boleto['id'] == $current) echo 'selected';?>><?php echo $boleto['label']?></option>
+        <?php foreach ($boletos as $boleto) { $parcel = number_format($_grandTotal/$boleto['parcel'], 2, ',', '.');?>
+        <option value="<?php echo $boleto['id']?>" <?php if ($boleto['id'] == $current) echo 'selected';?>><?php echo sprintf($boleto['label'], $parcel)?></option>
         <?php } ?>
       </select>
     </span>
