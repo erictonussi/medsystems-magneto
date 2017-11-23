@@ -2903,7 +2903,7 @@ form .form-instructions {
 .data-table tbody .product-description {
   font-family: "Raleway", "Helvetica Neue", Verdana, Arial, sans-serif;
   padding-top: 0;
-  font-size: 13px;
+  font-size: 14px;
 }
 
 .data-table tbody td,
@@ -5612,6 +5612,8 @@ p.product-name a:hover {
 
 .grouped-items-table .name-wrapper {
   font-family: "Raleway", "Helvetica Neue", Verdana, Arial, sans-serif;
+  font-weight: 600;
+  padding-top: 2px;
 }
 .grouped-items-table .button {
   font-family: monospace;
