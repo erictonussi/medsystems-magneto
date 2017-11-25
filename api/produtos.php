@@ -27,7 +27,7 @@ foreach ($parsed->responseBody->produtos[0]->produto as $entity) {
   // echo "$entity->CODPROD\n";
 
   $produto = array(
-    name => (String)$entity->f1,
+    name => (String)$entity->DESCRPROD,
     group => (String)$entity->f3
   );
 
