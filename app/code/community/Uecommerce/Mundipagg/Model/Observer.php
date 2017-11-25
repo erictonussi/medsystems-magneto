@@ -714,10 +714,10 @@ class Uecommerce_Mundipagg_Model_Observer extends Uecommerce_Mundipagg_Model_Sta
     public function checkModuleVersion()
     {
         $localModuleVersion = $this->readModuleVersion();
-        $repoVersion = $this->getRepoVersion();
-        if (version_compare($localModuleVersion, $repoVersion, "<") == 1) {
-            $this->insertOldVersionNotification($localModuleVersion, $repoVersion);
-        }
+        // $repoVersion = $this->getRepoVersion();
+        // if (version_compare($localModuleVersion, $repoVersion, "<") == 1) {
+        //     $this->insertOldVersionNotification($localModuleVersion, $repoVersion);
+        // }
     }
 
     private function insertOldVersionNotification($oldVersion, $newVersion)
