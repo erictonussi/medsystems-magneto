@@ -50,9 +50,10 @@ class Tonussi_BoletoPayment_Model_Paymentmethod extends Mage_Payment_Model_Metho
     return $this;
   }
 
-  public function getOrderPlaceRedirectUrl()
-  {
-    // return Mage::getUrl('boletopayment/payment/redirect', array('_secure' => false));
-    return Mage::getUrl('boleto', array('_secure' => false));
-  }
+  // public function getOrderPlaceRedirectUrl()
+  // {
+  //   parent::getOrderPlaceRedirectUrl();
+  //   // return Mage::getUrl('boletopayment/payment/redirect', array('_secure' => false));
+  //   return Mage::getUrl('boleto', array('_secure' => false));
+  // }
 }
