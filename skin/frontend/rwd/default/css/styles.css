@@ -861,7 +861,6 @@ body:not(.customer-account) .block:first-child .block-title {
 }
 .block-account li,
 .block-cms-menu li {
-  text-transform: uppercase;
   font-family: "Raleway", "Helvetica Neue", Verdana, Arial, sans-serif;
   margin: 7px 0;
 }
