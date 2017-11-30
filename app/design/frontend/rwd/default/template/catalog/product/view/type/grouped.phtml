@@ -43,7 +43,7 @@
         <col />
         <col />
         <thead>
-            <th>Produto</th>
+            <th colspan="2">Produto</th>
             <th class="a-center">Preço</th>
             <th class="a-center">Quantidade</th>
             <th class="a-right">Subtotal</th>
@@ -54,12 +54,12 @@
         <?php foreach ($_associatedProducts as $_item): $ids[] = $_item->getId(); ?>
             <?php $_finalPriceInclTax = $this->helper('tax')->getPrice($_item, $_item->getFinalPrice(), true) ?>
             <tr class="has-description">
-                <!-- <td class='image' width="1">
+                <td class='image' width="1" rowspan="2" valign="top">
                     <img class="thumbnail"
                          src="<?php echo $this->helper('catalog/image')->init($_item, 'thumbnail')->constrainOnly(true)->resize(105, 80); ?>"
                          alt="<?php echo $this->escapeHtml($this->getImageLabel()) ?>"
                          title="<?php echo $this->escapeHtml($this->getImageLabel()); ?>" />
-                </td> -->
+                </td>
                 <td class="name">
                     <p class="name-wrapper">
                         <?php echo $this->escapeHtml($_item->getName()) ?>
