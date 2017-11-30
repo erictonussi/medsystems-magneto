@@ -45,7 +45,7 @@ foreach ($parsed->responseBody->produtos[0]->produto as $entity) {
   // echo "$sku\n";
   // continue;
 
-  if ( array_search($sankhya_id, $sankhya_ids) ) {
+  if ( array_search($sankhya_id, $sankhya_ids) !== false ) {
     $produto['status'] = 0;
   } else {
     $produto['status'] = 1;
