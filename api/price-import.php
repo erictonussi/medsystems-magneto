@@ -4,6 +4,7 @@ $sankhya = new Sankhya();
 
 require '../app/Mage.php';
 Mage::init();
+Mage::app()->setCurrentStore(Mage_Core_Model_App::ADMIN_STORE_ID);
 
 $products = Mage::getModel('catalog/product')
     ->getCollection()
