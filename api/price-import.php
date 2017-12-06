@@ -24,8 +24,8 @@ foreach ($products as $product) {
   if ( $product->sankhya_id) {
 
     $parsed = $sankhya->consulta_precos($product->sankhya_id);
-    // var_dump($parsed->responseBody->produto->precos[0]->preco->VALOR);
-    $valor = (String)$parsed->responseBody->produto->precos[0]->preco->VALOR; // die();
+    // var_dump($parsed->responseBody->entities[0]->entity[0]->f4); //die();
+    $valor = (String)$parsed->responseBody->entities[0]->entity[0]->f4; // die();
 
     $produtos[] = array(
       "name" => $product->name,

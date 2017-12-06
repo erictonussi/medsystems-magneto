@@ -69,12 +69,33 @@ class Sankhya {
   }
 
   function consulta_precos ($expression) {
-    return $this->curl_call('mgecom/service.sbr?serviceName=ConsultaProdutosSP.getDetalhesPrecos',
-      "<serviceRequest serviceName='ConsultaProdutosSP.getDetalhesPrecos'>
+    return $this->curl_call('mge/service.sbr?serviceName=CRUDServiceProvider.loadRecords',
+      '<serviceRequest serviceName="CRUDServiceProvider.loadRecords">
         <requestBody>
-          <criterio CODPROD='$expression' RESOURCEID='br.com.sankhya.com.cons.consultaProdutos'/>
+          <dataSet datasetid="1512591740195_1" includePresentationFields="S" parallelLoader="true" parentEntity="TabelaPreco" rootEntity="Excecao">
+            <entity path="">
+              <fieldset list="*"/>
+              <field name="$USERFIELDS"/>
+            </entity>
+            <entity path="Produto">
+              <fieldset list="DESCRPROD,COMPLDESC,REFFORN,REFERENCIA,DECVLR,TIPCONTEST,LISCONTEST,TITCONTEST"/>
+            </entity>
+            <entity path="LocalFinanceiro">
+              <field name="DESCRLOCAL"/>
+            </entity>
+            <foreingKey>
+              <NUTAB>
+                <![CDATA[21]]>
+              </NUTAB>
+            </foreingKey>
+            <criteria>
+              <expression>CODPROD = ?</expression>
+              <parameter type="N">'.$expression.'</parameter>
+            </criteria>
+          </dataSet>
+          <clientEventList/>
         </requestBody>
-      </serviceRequest>", true);
+      </serviceRequest>', true);
   }
 
   function criar_nota ($parceiro, $tipo_venda, $frete) {
