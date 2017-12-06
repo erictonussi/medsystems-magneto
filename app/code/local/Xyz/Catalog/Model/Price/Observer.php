@@ -28,6 +28,39 @@ class Xyz_Catalog_Model_Price_Observer
                 # code...
                 $tipo_venda = $payment->getBoletoSankhyaId();
                 break;
+            case 'mundipagg_creditcard':
+                # code...
+              switch ($payment->getAdditionalInformation()['mundipagg_creditcard_new_credito_parcelamento_1_1']) {
+                case 1:
+                  $tipo_venda = 860;
+                  break;
+                case 2:
+                  $tipo_venda = 800;
+                  break;
+                case 3:
+                  $tipo_venda = 810;
+                  break;
+                case 4:
+                  $tipo_venda = 820;
+                  break;
+                case 5:
+                  $tipo_venda = 830;
+                  break;
+                case 6:
+                  $tipo_venda = 840;
+                  break;
+                case 7:
+                  $tipo_venda = 850;
+                  break;
+                case 8:
+                  $tipo_venda = 870;
+                  break;
+                case 9:
+                  $tipo_venda = 880;
+                  break;
+              }
+
+              break;
 
             default:
                 # code...
