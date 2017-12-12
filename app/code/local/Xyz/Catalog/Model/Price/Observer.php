@@ -23,6 +23,8 @@ class Xyz_Catalog_Model_Price_Observer
 
         $parceiro = $order->getCustomerId();
 
+        $juros = 0;
+
         switch ($payment->getMethodInstance()->getCode()) {
             case 'boletopayment':
                 # code...
@@ -42,21 +44,27 @@ class Xyz_Catalog_Model_Price_Observer
                   break;
                 case 4:
                   $tipo_venda = 820;
+                  $juros = 3.5;
                   break;
                 case 5:
                   $tipo_venda = 830;
+                  $juros = 3.5;
                   break;
                 case 6:
                   $tipo_venda = 840;
+                  $juros = 3.5;
                   break;
                 case 7:
                   $tipo_venda = 850;
+                  $juros = 4;
                   break;
                 case 8:
                   $tipo_venda = 870;
+                  $juros = 4;
                   break;
                 case 9:
                   $tipo_venda = 880;
+                  $juros = 4;
                   break;
               }
 
@@ -85,7 +93,7 @@ class Xyz_Catalog_Model_Price_Observer
               'id'            => Mage::getModel('catalog/product')->load($item->getProductId())->getsankhya_id(),
               // 'name'          => $item->getName(),
               // 'sku'           => $item->getSku(),
-              'valor'         => $item->getPrice(),
+              'valor'         => $item->getPrice() * (1 + $juros/100),
               'qtd'   => $item->getQtyOrdered(),
           );
         }
@@ -96,7 +104,7 @@ class Xyz_Catalog_Model_Price_Observer
 
         // echo "parceiro: $parceiro, tipo_venda: $tipo_venda:, shipping: , $shipping \n";
 
-        $parsed = $sankhya->criar_nota($parceiro, $tipo_venda, $shipping, $orderId);
+        $parsed = $sankhya->criar_nota($parceiro, $tipo_venda, $shipping * (1 + $juros/100), $orderId);
         // var_dump($parsed); die();
 
         $nota = (string)$parsed->responseBody->pk->NUNOTA;
