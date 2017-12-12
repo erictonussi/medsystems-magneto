@@ -96,7 +96,7 @@ class Xyz_Catalog_Model_Price_Observer
 
         // echo "parceiro: $parceiro, tipo_venda: $tipo_venda:, shipping: , $shipping \n";
 
-        $parsed = $sankhya->criar_nota($parceiro, $tipo_venda, $shipping);
+        $parsed = $sankhya->criar_nota($parceiro, $tipo_venda, $shipping, $orderId);
         // var_dump($parsed); die();
 
         $nota = (string)$parsed->responseBody->pk->NUNOTA;
