@@ -24,7 +24,9 @@
  * @license     http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
  */
 ?>
-<!-- <div id="messages_product_view"><?php echo $this->getMessagesBlock()->toHtml() ?></div> -->
+<?php if ($this->getRequest()->getModuleName() !== 'customer') { ?>
+<div id="messages_product_view" style="width: 365px;"><?php echo $this->getMessagesBlock()->toHtml() ?></div>
+<?php } ?>
 <!-- <div class="page-title"> -->
     <h2><?php echo Mage::helper('contacts')->__('Contact Us') ?></h2>
 <!-- </div> -->
