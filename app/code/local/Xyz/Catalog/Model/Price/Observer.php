@@ -31,6 +31,7 @@ class Xyz_Catalog_Model_Price_Observer
                 $tipo_venda = $payment->getBoletoSankhyaId();
                 break;
             case 'mundipagg_creditcard':
+              return;
                 # code...
               switch ($payment->getAdditionalInformation()['mundipagg_creditcard_new_credito_parcelamento_1_1']) {
                 case 1:
@@ -74,6 +75,8 @@ class Xyz_Catalog_Model_Price_Observer
                 # code...
                 break;
         }
+
+        // var_dump($payment->getAdditionalInformation()); die();
 
         $items = array();
 
