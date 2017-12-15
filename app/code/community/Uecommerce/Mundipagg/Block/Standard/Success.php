@@ -269,8 +269,10 @@ class Uecommerce_Mundipagg_Block_Standard_Success extends Mage_Sales_Block_Items
         $sankhya = new Sankhya();
 
         // echo "parceiro: $parceiro, tipo_venda: $tipo_venda:, shipping: , $shipping \n";
+        $frete = $shipping * (1 + $juros/100);
+        $frete = intval($frete * 100) / 100;
 
-        $parsed = $sankhya->criar_nota($parceiro, $tipo_venda, $shipping * (1 + $juros/100), $orderId);
+        $parsed = $sankhya->criar_nota($parceiro, $tipo_venda, $frete, $orderId);
         // var_dump($parsed); die();
 
         $nota = (string)$parsed->responseBody->pk->NUNOTA;
