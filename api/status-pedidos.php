@@ -87,8 +87,8 @@ foreach ($parsed->responseBody->entities[0]->entity as $entity) {
     // var_dump($entity_nota);
 
     if ( $entity_nota->f280 == "Sim" ) {
-    //   $status[(int)$entity_nota->f233]["novo"] = "complete";
-      $status[(int)$entity->f5]["novo"] = "complete";
+    //   $status[(int)$entity_nota->f233]["novo"] = "faturado";
+      $status[(int)$entity->f5]["novo"] = "faturado";
     }
 
 
