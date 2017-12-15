@@ -242,6 +242,7 @@ class Uecommerce_Mundipagg_Block_Standard_Success extends Mage_Sales_Block_Items
         // var_dump($payment->getAdditionalInformation()); die();
 
         $items = array();
+        $arredondamento = 0;
 
         // foreach ($order->getAllItems() as $item) {
         foreach ($order->getAllVisibleItems() as $item) {
@@ -255,11 +256,16 @@ class Uecommerce_Mundipagg_Block_Standard_Success extends Mage_Sales_Block_Items
           //    echo "\n$opt_value";
           // }
 
+          $valor = $item->getPrice();
+          $valorJuros =  $item->getPrice() * ($juros/100);
+          $arredondamento = $valorJuros * 100 % 1 / 100;
+          $valorJuros = intval($valorJuros * 100) / 100;
+
           $items[] = array(
               'id'            => Mage::getModel('catalog/product')->load($item->getProductId())->getsankhya_id(),
               // 'name'          => $item->getName(),
               // 'sku'           => $item->getSku(),
-              'valor'         => $item->getPrice() * (1 + $juros/100),
+              'valor'         => $item->getPrice() + $valorJuros,
               'qtd'   => $item->getQtyOrdered(),
           );
         }
@@ -270,7 +276,7 @@ class Uecommerce_Mundipagg_Block_Standard_Success extends Mage_Sales_Block_Items
 
         // echo "parceiro: $parceiro, tipo_venda: $tipo_venda:, shipping: , $shipping \n";
 
-        $parsed = $sankhya->criar_nota($parceiro, $tipo_venda, $shipping * (1 + $juros/100), $orderId);
+        $parsed = $sankhya->criar_nota($parceiro, $tipo_venda, $shipping * (1 + $juros/100) + $arredondamento, $orderId);
         // var_dump($parsed); die();
 
         $nota = (string)$parsed->responseBody->pk->NUNOTA;
