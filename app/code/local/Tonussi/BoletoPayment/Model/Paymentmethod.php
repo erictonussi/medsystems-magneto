@@ -33,14 +33,14 @@ class Tonussi_BoletoPayment_Model_Paymentmethod extends Mage_Payment_Model_Metho
     if (!$info->getBoletoSankhyaId())
     {
       $errorCode = 'invalid_data';
-      $errorMsg = $this->_getHelper()->__("BoletoSankhyaId is a required field.\n");
+      $errorMsg = $this->_getHelper()->__("Por favor, selecione uma opção de parcelamento de boleto.\n");
     }
 
-    if (!$info->getBoletoDescricao())
-    {
-      $errorCode = 'invalid_data';
-      $errorMsg .= $this->_getHelper()->__('BoletoDescricao is a required field.');
-    }
+    // if (!$info->getBoletoDescricao())
+    // {
+    //   $errorCode = 'invalid_data';
+    //   $errorMsg .= $this->_getHelper()->__('BoletoDescricao is a required field.');
+    // }
 
     if ($errorMsg)
     {
