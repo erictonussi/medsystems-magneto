@@ -38,7 +38,7 @@ $customers = Mage::getModel('customer/customer')
 $ids = array(0);
 
 foreach ($customers as $customer) {
-  echo "\n\nid:" . (String)$customer->entity_id;
+  // echo "\n\nid:" . (String)$customer->entity_id;
   $ids[] = (String)$customer->entity_id;
 }
 
@@ -53,6 +53,8 @@ $parsed = $sankhya->get_users($ids);
 $websiteId = Mage::app()->getWebsite()->getId();
 $store = Mage::app()->getStore();
 
+echo "<pre>";
+
 foreach ($parsed->responseBody->result->row as $entity) {
   // var_dump($entity); die();
 
@@ -64,6 +66,9 @@ foreach ($parsed->responseBody->result->row as $entity) {
   $cpf_cnpj = mask($cpf_cnpj, strlen($cpf_cnpj) == 11 ? '###.###.###-##' : '##.###.###/####-##');
 
   echo "\ncpf/cnpj: $cpf_cnpj";
+  echo "\nsenha: ".substr((String)$entity->CGC_CPF, 0, 6);
+
+  echo "\n";
 
   $customer = Mage::getModel("customer/customer");
   $customer->setWebsiteId($websiteId)
@@ -76,7 +81,7 @@ foreach ($parsed->responseBody->result->row as $entity) {
            // ->setLastname('Doe')
            ->setEmail((String)$entity->EMAIL)
            ->setTaxvat($cpf_cnpj)
-           ->setPassword('somepassword');
+           ->setPassword(substr((String)$entity->CGC_CPF, 0, 6));
 
   try {
       $customer->save();
@@ -109,8 +114,10 @@ foreach ($parsed->responseBody->result->row as $entity) {
       $address->save();
   }
   catch (Exception $e) {
-    var_dump($e->getMessage());
+    echo 'erro: ' . $e->getMessage();
       // Zend_Debug::dump($e->getMessage());
   }
+
+  echo "\n";
 
 }
