@@ -19,7 +19,7 @@ class Sankhya {
   }
 
   function curl_call($service, $xml, $userMgeSession = false) {
-    $ch = curl_init('http://sankhya.medsystems.com.br:8280/'.$service . ( $userMgeSession ? '&mgeSession='.$this->jsessionid : '' ));
+    $ch = curl_init('http://sankhya.medsystems.com.br:8180/'.$service . ( $userMgeSession ? '&mgeSession='.$this->jsessionid : '' ));
 
     curl_setopt($ch, CURLOPT_POST, 1);
     curl_setopt($ch, CURLOPT_POSTFIELDS, $xml);
