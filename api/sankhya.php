@@ -805,18 +805,53 @@ class Sankhya {
       </serviceRequest>", true);
   }
 
-  function get_users () {
+  function get_users ($ids) {
     // http://sankhya.medsystems.com.br:8280/mge/service.sbr?serviceName=Pesquisa.applySearch
     return $this->curl_call('mge/service.sbr?serviceName=Pesquisa.applySearch',
       "<serviceRequest serviceName=\"Pesquisa.applySearch\">
         <requestBody>
           <pesquisa campoCriterio=\"CODPARC\" ignoreEntityCriteria=\"true\" nomeInstancia=\"Parceiro\" nomeInstanciaLocal=\"CabecalhoNota\" relationName=\"Parceiro\" showInactives=\"false\" valorCriterio=\"\">
             <criterioLiteral>
-              <expressao>this.CODPARC &lt; 30 AND this.CLIENTE = 'S' AND this.EMAIL != ''</expressao>
+              <expressao>this.CODPARC &lt; 30 AND this.CLIENTE = 'S' AND this.EMAIL != '' and this.CODPARC not in (". join($ids, ',') .")</expressao>
             </criterioLiteral>
           </pesquisa>
         </requestBody>
       </serviceRequest>");
+  }
+
+  // http://sankhya.medsystems.com.br:8280/mge/service.sbr?serviceName=CRUDServiceProvider.loadRecords
+  function consulta_endereco ($cep) {
+    return $this->curl_call('mge/service.sbr?serviceName=CRUDServiceProvider.loadRecords',
+      '<serviceRequest serviceName="CRUDServiceProvider.loadRecords">
+        <requestBody>
+          <dataSet datasetid="1513621429746_2" includePresentationFields="S" parallelLoader="true" rootEntity="CEP">
+            <entity path="">
+              <fieldset list="*"/>
+            </entity>
+            <entity path="Endereco">
+              <field name="NOMEEND"/>
+              <field name="TIPO"/>
+            </entity>
+            <entity path="Bairro">
+              <field name="NOMEBAI"/>
+            </entity>
+            <entity path="Cidade">
+              <field name="NOMECID"/>
+              <field name="UF"/>
+            </entity>
+            <entity path="UnidadeFederativa">
+              <field name="*"/>
+            </entity>
+            <criteria>
+              <expression>(this.CEP = ?)</expression>
+              <parameter type="S">'.$cep.'</parameter>
+            </criteria>
+          </dataSet>
+          <clientEventList>
+            <clientEvent>parceiro.mostra.mensagem.criticaie</clientEvent>
+          </clientEventList>
+        </requestBody>
+      </serviceRequest>', true);
   }
 
   // http://sankhya.medsystems.com.br:8280/mge/service.sbr?serviceName=CRUDServiceProvider.loadRecords
