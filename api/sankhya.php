@@ -812,7 +812,7 @@ class Sankhya {
         <requestBody>
           <pesquisa campoCriterio=\"CODPARC\" ignoreEntityCriteria=\"true\" nomeInstancia=\"Parceiro\" nomeInstanciaLocal=\"CabecalhoNota\" relationName=\"Parceiro\" showInactives=\"false\" valorCriterio=\"\">
             <criterioLiteral>
-              <expressao>this.CODPARC &lt; 30 AND this.CLIENTE = 'S' AND this.EMAIL != '' and this.CODPARC not in (". join($ids, ',') .")</expressao>
+              <expressao>this.CLIENTE = 'S' AND this.EMAIL != '' and this.CODPARC not in (". join($ids, ',') .")</expressao>
             </criterioLiteral>
           </pesquisa>
         </requestBody>
