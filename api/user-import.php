@@ -78,6 +78,7 @@ foreach ($parsed->responseBody->result->row as $entity) {
            ->setcreated_at(date("Y-m-d H:i:s"))
            ->setFirstname((String)$entity->NOMEPARC)
            // ->setLastname((String)$entity->NOMEPARC)
+           ->setLastname(".")
            // ->setLastname('Doe')
            ->setEmail((String)$entity->EMAIL)
            ->setTaxvat($cpf_cnpj)
