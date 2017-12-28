@@ -4,6 +4,153 @@ class Sankhya {
 
   var $jsessionid;
 
+  var $estados = array(
+    '1' => array(
+      'estado' => 'SAO PAULO',
+      'uf' => 'SP'
+    ),
+    '2' => array(
+      'estado' => 'MINAS GERAIS',
+      'uf' => 'MG'
+    ),
+    '3' => array(
+      'estado' => 'DISTRITO FEDERAL',
+      'uf' => 'DF'
+    ),
+    '4' => array(
+      'estado' => 'GOIAS',
+      'uf' => 'GO'
+    ),
+    '5' => array(
+      'estado' => 'MATO GROSSO',
+      'uf' => 'MT'
+    ),
+    '6' => array(
+      'estado' => 'BAHIA',
+      'uf' => 'BA'
+    ),
+    '7' => array(
+      'estado' => 'RIO DE JANEIRO',
+      'uf' => 'RJ'
+    ),
+    '8' => array(
+      'estado' => 'PARANA',
+      'uf' => 'PR'
+    ),
+    '9' => array(
+      'estado' => 'PARA',
+      'uf' => 'PA'
+    ),
+    '10' => array(
+      'estado' => 'PERNAMBUCO',
+      'uf' => 'PE'
+    ),
+    '11' => array(
+      'estado' => 'RONDONIA',
+      'uf' => 'RO'
+    ),
+    '12' => array(
+      'estado' => 'MATO GROSSO DO SUL',
+      'uf' => 'MS'
+    ),
+    '13' => array(
+      'estado' => 'SANTA CATARINA',
+      'uf' => 'SC'
+    ),
+    '14' => array(
+      'estado' => 'TOCANTINS',
+      'uf' => 'TO'
+    ),
+    '15' => array(
+      'estado' => 'RIO GRANDE DO SUL',
+      'uf' => 'RS'
+    ),
+    '16' => array(
+      'estado' => 'ESPIRITO SANTO',
+      'uf' => 'ES'
+    ),
+    '17' => array(
+      'estado' => 'PARAIBA',
+      'uf' => 'PB'
+    ),
+    '18' => array(
+      'estado' => 'AMAZONAS',
+      'uf' => 'AM'
+    ),
+    '19' => array(
+      'estado' => 'ALAGOAS',
+      'uf' => 'AL'
+    ),
+    '20' => array(
+      'estado' => 'ACRE',
+      'uf' => 'AC'
+    ),
+    '21' => array(
+      'estado' => 'CEARA',
+      'uf' => 'CE'
+    ),
+    '22' => array(
+      'estado' => 'SERGIPE',
+      'uf' => 'SE'
+    ),
+    '23' => array(
+      'estado' => 'PIAUI',
+      'uf' => 'PI'
+    ),
+    '24' => array(
+      'estado' => 'RORAIMA',
+      'uf' => 'RR'
+    ),
+    '26' => array(
+      'estado' => 'RIO GRANDE DO NORTE',
+      'uf' => 'RN'
+    ),
+    '28' => array(
+      'estado' => 'AMAPA',
+      'uf' => 'AP'
+    ),
+    '31' => array(
+      'estado' => 'MARANHÃO',
+      'uf' => 'MA'
+    ),
+    '32' => array(
+      'estado' => 'EXTERIOR USA',
+      'uf' => 'EX'
+    ),
+    '33' => array(
+      'estado' => 'EXTERIOR ITALY',
+      'uf' => 'EX'
+    ),
+    '34' => array(
+      'estado' => 'EXTERIOR GERMANY',
+      'uf' => 'EX'
+    ),
+    '35' => array(
+      'estado' => 'EXTERIOR ISRAEL',
+      'uf' => 'EX'
+    ),
+    '36' => array(
+      'estado' => 'EXTERIOR FRANCE',
+      'uf' => 'EX'
+    ),
+    '37' => array(
+      'estado' => 'EXTERIOR SWITZERLAND',
+      'uf' => 'EX'
+    ),
+    '38' => array(
+      'estado' => 'EXTERIOR TOKYO',
+      'uf' => 'EX'
+    ),
+    '39' => array(
+      'estado' => 'EXTERIOR HONK KONG',
+      'uf' => 'EX'
+    ),
+    '41' => array(
+      'estado' => 'EXTERIOR SEOUL',
+      'uf' => 'EX'
+    )
+  );
+
   function __construct () {
 
     $parsed = $this->curl_call('mge/service.sbr?serviceName=MobileLoginSP.login',
@@ -807,14 +954,29 @@ class Sankhya {
 
   function get_users ($ids) {
     // http://sankhya.medsystems.com.br:8280/mge/service.sbr?serviceName=Pesquisa.applySearch
-    return $this->curl_call('mge/service.sbr?serviceName=Pesquisa.applySearch',
-      "<serviceRequest serviceName=\"Pesquisa.applySearch\">
+    return $this->curl_call('mge/service.sbr?serviceName=CRUDServiceProvider.loadRecords',
+      "<serviceRequest serviceName=\"CRUDServiceProvider.loadRecords\">
         <requestBody>
-          <pesquisa campoCriterio=\"CODPARC\" ignoreEntityCriteria=\"true\" nomeInstancia=\"Parceiro\" nomeInstanciaLocal=\"CabecalhoNota\" relationName=\"Parceiro\" showInactives=\"false\" valorCriterio=\"\">
-            <criterioLiteral>
-              <expressao>this.CLIENTE = 'S' AND this.EMAIL != '' and this.CODPARC not in (". join($ids, ',') .")</expressao>
-            </criterioLiteral>
-          </pesquisa>
+          <dataSet crudListener=\"br.com.sankhya.modelcore.crudlisteners.ParceiroCrudListener\" datasetid=\"1514463233118_1\" includePresentationFields=\"S\" parallelLoader=\"true\" rootEntity=\"Parceiro\">
+            <entity path=\"\">
+              <fieldset list=\"CODPARC,NOMEPARC,EMAIL,CGC_CPF,CEP,NUMEND,COMPLEMENTO,TELEFONE\"/>
+            </entity>
+            <entity path=\"Endereco\">
+              <field name=\"TIPO\"/>
+              <field name=\"NOMEEND\"/>
+            </entity>
+            <entity path=\"Bairro\">
+              <field name=\"NOMEBAI\"/>
+            </entity>
+            <entity path=\"Cidade\">
+              <field name=\"NOMECID\"/>
+              <field name=\"UF\"/>
+            </entity>
+            <criteria>
+              <expression>this.CLIENTE = 'S' AND this.EMAIL != '' and this.CODPARC not in (". join($ids, ',') .")</expression>
+              <!--expression>(this.CODPARC &lt; 30) AND this.CLIENTE = 'S' AND this.EMAIL != '' and this.CODPARC not in (". join($ids, ',') .")</expression-->
+            </criteria>
+          </dataSet>
         </requestBody>
       </serviceRequest>");
   }

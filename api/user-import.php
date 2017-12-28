@@ -3,6 +3,8 @@
 require '../app/Mage.php';
 include 'sankhya.php';
 
+Mage::register('isSecureArea', true);
+
 function mask($val, $mask)
 {
  $maskared = '';
@@ -40,6 +42,8 @@ $ids = array(0);
 foreach ($customers as $customer) {
   // echo "\n\nid:" . (String)$customer->entity_id;
   $ids[] = (String)$customer->entity_id;
+  // $customer->setIsDeleteable(true);
+  // $customer->delete();
 }
 
 // var_dump($ids); // die();
@@ -55,60 +59,59 @@ $store = Mage::app()->getStore();
 
 echo "<pre>";
 
-foreach ($parsed->responseBody->result->row as $entity) {
+foreach ($parsed->responseBody->entities[0]->entity as $entity) {
   // var_dump($entity); die();
 
-  echo "\n\n" . (int)$entity->CODPARC;
-  echo "\n" . (String)$entity->NOMEPARC;
-  echo "\n" . (String)$entity->EMAIL;
+  echo "\n\n" . (int)$entity->f0;
+  echo "\n" . (String)$entity->f1;
+  echo "\n" . (String)$entity->f2;
 
-  $cpf_cnpj = (String)$entity->CGC_CPF;
+  $cpf_cnpj = (String)$entity->f3;
   $cpf_cnpj = mask($cpf_cnpj, strlen($cpf_cnpj) == 11 ? '###.###.###-##' : '##.###.###/####-##');
 
   echo "\ncpf/cnpj: $cpf_cnpj";
-  echo "\nsenha: ".substr((String)$entity->CGC_CPF, 0, 6);
+  echo "\nsenha: ".substr((String)$entity->f3, 0, 6);
+
+  echo "\nPostcode: " . (String)$entity->f4;
+  echo "\nEstado: " . $sankhya->estados[(String)$entity->f12]['estado'];
+
+  // die();
 
   echo "\n";
 
   $customer = Mage::getModel("customer/customer");
   $customer->setWebsiteId($websiteId)
            ->setStore($store)
-           ->setentity_id((String)$entity->CODPARC)
+           ->setentity_id((String)$entity->f0)
            // ->setcreated_at("2014-01-01 09:00:00")
            ->setcreated_at(date("Y-m-d H:i:s"))
-           ->setFirstname((String)$entity->NOMEPARC)
-           // ->setLastname((String)$entity->NOMEPARC)
+           ->setFirstname((String)$entity->f1)
+           // ->setLastname((String)$entity->f1)
            ->setLastname(".")
            // ->setLastname('Doe')
-           ->setEmail((String)$entity->EMAIL)
+           ->setEmail((String)$entity->f2)
            ->setTaxvat($cpf_cnpj)
-           ->setPassword(substr((String)$entity->CGC_CPF, 0, 6));
+           ->setPassword(substr((String)$entity->f3, 0, 6));
 
   try {
       $customer->save();
 
-      $parsed_endereco = $sankhya->consulta_endereco((String)$entity->CEP);
-      // var_dump($parsed_endereco); die();
-
-      $endereco = $parsed_endereco->responseBody->entities[0]->entity[0];
-      // var_dump($endereco); die();
-
       $address = Mage::getModel("customer/address");
       $address->setCustomerId($customer->getId())
-              ->setFirstname((String)$entity->NOMEPARC)
+              ->setFirstname((String)$entity->f1)
               // ->setMiddleName($customer->getMiddlename())
               ->setLastname('.')
               ->setCountryId('BR')
-              //->setRegionId('1') //state/province, only needed if the country is USA
-              ->setPostcode((String)$entity->CEP)
-              ->setCity((String)$endereco->f9)
-              ->setTelephone((String)$entity->TELEFONE)
-              // ->setFax((String)$entity->NOMEPARC)
-              // ->setCompany((String)$entity->NOMEPARC)
+              // ->setRegionId( $sankhya->estados[(String)$entity->f12]['estado'] ) //state/province, only needed if the country is USA
+              ->setPostcode((String)$entity->f4)
+              ->setCity((String)$entity->f11)
+              ->setTelephone((String)$entity->f7)
+              // ->setFax((String)$entity->f1)
+              // ->setCompany((String)$entity->f1)
               ->setStreet(array(
-                (String)$endereco->f7),
-                (String)$entity->NUMEND
-              )
+                '0' => (String)$entity->f8 . ' ' . (String)$entity->f9 . ', ' . (String)$entity->f5,
+                '1' => (String)$entity->f6
+              ))
               ->setIsDefaultBilling('1')
               ->setIsDefaultShipping('1')
               ->setSaveInAddressBook('1');
