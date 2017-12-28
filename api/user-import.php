@@ -63,6 +63,7 @@ $total = 0;
 foreach ($parsed->responseBody->entities[0]->entity as $entity) {
   // var_dump($entity); die();
   $total++;
+  echo "\n\n#$total";
 
   echo "\n\n" . (int)$entity->f0;
   echo "\n" . (String)$entity->f1;
@@ -124,6 +125,6 @@ foreach ($parsed->responseBody->entities[0]->entity as $entity) {
       // Zend_Debug::dump($e->getMessage());
   }
 
-  echo "\n\n$total";
+  echo "\n";
 
 }
