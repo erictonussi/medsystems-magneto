@@ -65,9 +65,9 @@ foreach ($parsed->responseBody->entities[0]->entity as $entity) {
   $total++;
   echo "\n\n#$total";
 
-  echo "\n\n" . (int)$entity->f0;
-  echo "\n" . (String)$entity->f1;
-  echo "\n" . (String)$entity->f2;
+  echo "\n\nid: " . (int)$entity->f0;
+  echo "\nnome: " . (String)$entity->f1;
+  echo "\nemail: " . (String)$entity->f2;
 
   $cpf_cnpj = (String)$entity->f3;
   $cpf_cnpj = mask($cpf_cnpj, strlen($cpf_cnpj) == 11 ? '###.###.###-##' : '##.###.###/####-##');
