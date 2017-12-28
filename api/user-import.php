@@ -97,7 +97,7 @@ foreach ($parsed->responseBody->result->row as $entity) {
       $address->setCustomerId($customer->getId())
               ->setFirstname((String)$entity->NOMEPARC)
               // ->setMiddleName($customer->getMiddlename())
-              ->setLastname($customer->getFirstname())
+              ->setLastname('.')
               ->setCountryId('BR')
               //->setRegionId('1') //state/province, only needed if the country is USA
               ->setPostcode((String)$entity->CEP)
