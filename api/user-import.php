@@ -41,9 +41,12 @@ $ids = array(0);
 
 foreach ($customers as $customer) {
   // echo "\n\nid:" . (String)$customer->entity_id;
-  $ids[] = (String)$customer->entity_id;
-  // $customer->setIsDeleteable(true);
-  // $customer->delete();
+  if (true)
+    $ids[] = (String)$customer->entity_id;
+  else {
+    $customer->setIsDeleteable(true);
+    $customer->delete();
+  }
 }
 
 // var_dump($ids); // die();
@@ -65,12 +68,14 @@ foreach ($parsed->responseBody->entities[0]->entity as $entity) {
   $total++;
   echo "\n\n#$total";
 
-  echo "\n\nid: " . (int)$entity->f0;
-  echo "\nnome: " . (String)$entity->f1;
-  echo "\nemail: " . (String)$entity->f2;
+  $email = (String)$entity->f2 ?: (int)$entity->f0.'@no.email';
 
   $cpf_cnpj = (String)$entity->f3;
   $cpf_cnpj = mask($cpf_cnpj, strlen($cpf_cnpj) == 11 ? '###.###.###-##' : '##.###.###/####-##');
+
+  echo "\n\nid: " . (int)$entity->f0;
+  echo "\nnome: " . (String)$entity->f1;
+  echo "\nemail: " . $email;
 
   echo "\ncpf/cnpj: $cpf_cnpj";
   echo "\nsenha: ".substr((String)$entity->f3, 0, 6);
@@ -92,7 +97,7 @@ foreach ($parsed->responseBody->entities[0]->entity as $entity) {
            // ->setLastname((String)$entity->f1)
            ->setLastname(".")
            // ->setLastname('Doe')
-           ->setEmail((String)$entity->f2)
+           ->setEmail($email)
            ->setTaxvat($cpf_cnpj)
            ->setPassword(substr((String)$entity->f3, 0, 6));
 
@@ -128,3 +133,11 @@ foreach ($parsed->responseBody->entities[0]->entity as $entity) {
   echo "\n";
 
 }
+
+
+$resource = Mage::getSingleton('core/resource');
+$writeConnection = $resource->getConnection('core_write');
+
+$query = "UPDATE customer_entity SET email = null WHERE email like '%@no.email' ";
+
+$writeConnection->query($query);

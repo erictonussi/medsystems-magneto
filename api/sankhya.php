@@ -973,8 +973,8 @@ class Sankhya {
               <field name=\"UF\"/>
             </entity>
             <criteria>
-              <expression>this.CLIENTE = 'S' AND this.EMAIL != '' and this.CODPARC not in (". join($ids, ',') .")</expression>
-              <!--expression>(this.CODPARC &lt; 30) AND this.CLIENTE = 'S' AND this.EMAIL != '' and this.CODPARC not in (". join($ids, ',') .")</expression-->
+              <expression>this.CLIENTE = 'S' AND this.CODPARC not in (". join($ids, ',') .")</expression>
+              <!--expression>(this.CODPARC &lt; 15) AND this.CLIENTE = 'S' AND this.CODPARC not in (". join($ids, ',') .")</expression-->
             </criteria>
           </dataSet>
         </requestBody>

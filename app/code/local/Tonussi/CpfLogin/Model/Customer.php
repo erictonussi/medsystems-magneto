@@ -11,13 +11,14 @@ class Tonussi_CpfLogin_Model_Customer extends Mage_Customer_Model_Customer
   {
 
       $result = Mage::getModel('customer/customer')
-                    ->getCollection()
-                    ->addAttributeToSelect('taxvat')
-                    ->addAttributeToFilter('taxvat', $taxvat)
-                    ->load()
-                    ->getFirstItem();
+        ->getCollection()
+        ->addAttributeToSelect('taxvat')
+        ->addAttributeToFilter('taxvat', $taxvat)
+        ->load()
+        ->getFirstItem();
 
-      $this->_getResource()->loadByEmail($this, $result->email);
+      // $this->_getResource()->loadByEmail($this, $result->email);
+      $this->_getResource()->load($this, $result->entity_id);
 
       return $this;
   }
