@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <PLACEHOLDER_NoRequiredPhone>
+            <version>0.1.0</version>
+        </PLACEHOLDER_NoRequiredPhone>
+    </modules>
+    <global>
+        <resources>
+            <tonussi_norequiredphone_setup>
+                <setup>
+                    <module>PLACEHOLDER_NoRequiredPhone</module>
+                </setup>
+            </tonussi_norequiredphone_setup>
+        </resources>
+    </global>
+</config>
