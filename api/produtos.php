@@ -19,7 +19,7 @@ include 'sankhya.php';
 
 $sankhya = new Sankhya();
 
-$parsed = $sankhya->consulta_produtos('(this.CODPROD in (336, 337, 2735, 2736, 2737, 2738, 2739, 2740, 2948, 2945, 2946, 2949, 2950, 2951, 2960, 2961, 2963, 2962, 3002, 3007, 3009, 3062) )');
+$parsed = $sankhya->consulta_produtos('(this.CODPROD in (3058, 3056, 3057) )');
 // print_r($parsed); die();
 
 $produtos = [];
