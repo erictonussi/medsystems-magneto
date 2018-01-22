@@ -1,3 +1,7 @@
 git config git-ftp.url "ftp://medsystems.com.br/"
-git config git-ftp.user "queroprp@loja.queroprp.com.br"
-git config git-ftp.password "^YfU+Yag*53&"
+git config git-ftp.user "loja@loja.medsystems.com.br"
+git config git-ftp.password "%4,%5{~o5FuB"
+
+git config git-ftp.queroprp.url "ftp://medsystems.com.br/"
+git config git-ftp.queroprp.user "queroprp@loja.queroprp.com.br"
+git config git-ftp.queroprp.password "^YfU+Yag*53&"
