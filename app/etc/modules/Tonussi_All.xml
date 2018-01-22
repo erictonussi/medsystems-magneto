@@ -12,5 +12,9 @@
        <active>true</active>
        <codePool>local</codePool>
     </Tonussi_CpfLogin>
+    <Tonussi_NoRequiredPhone>
+        <active>true</active>
+        <codePool>local</codePool>
+    </Tonussi_NoRequiredPhone>
   </modules>
 </config>
