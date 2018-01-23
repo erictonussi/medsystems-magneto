@@ -92,11 +92,15 @@ class Xyz_Catalog_Model_Price_Observer
           //    echo "\n$opt_value";
           // }
 
+          $product = Mage::getModel('catalog/product')->load($item->getProductId());
+
+          $price = $product->getsankhya_valor() ?: $item->getPrice();
+
           $items[] = array(
-              'id'            => Mage::getModel('catalog/product')->load($item->getProductId())->getsankhya_id(),
+              'id'            => $product->getsankhya_id(),
               // 'name'          => $item->getName(),
               // 'sku'           => $item->getSku(),
-              'valor'         => $item->getPrice() * (1 + $juros/100),
+              'valor'         => $price * (1 + $juros/100),
               'qtd'   => $item->getQtyOrdered(),
           );
         }
