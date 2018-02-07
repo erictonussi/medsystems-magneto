@@ -111,6 +111,7 @@ foreach ($parsed->responseBody->entities[0]->entity as $entity) {
               ->setLastname('.')
               ->setCountryId('BR')
               // ->setRegionId( $sankhya->estados[(String)$entity->f12]['estado'] ) //state/province, only needed if the country is USA
+              ->setRegion( $sankhya->estados[(String)$entity->f12]['estado'] ) //state/province, only needed if the country is USA
               ->setPostcode((String)$entity->f4)
               ->setCity((String)$entity->f11)
               ->setTelephone((String)$entity->f7)
