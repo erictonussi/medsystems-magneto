@@ -255,11 +255,15 @@ class Uecommerce_Mundipagg_Block_Standard_Success extends Mage_Sales_Block_Items
           //    echo "\n$opt_value";
           // }
 
+          $product = Mage::getModel('catalog/product')->load($item->getProductId());
+
+          $price = $product->getsankhya_valor() ?: $item->getPrice();
+
           $items[] = array(
-              'id'            => Mage::getModel('catalog/product')->load($item->getProductId())->getsankhya_id(),
+              'id'            => $product->getsankhya_id(),
               // 'name'          => $item->getName(),
               // 'sku'           => $item->getSku(),
-              'valor'         => $item->getPrice() * (1 + $juros/100),
+              'valor'         => $price * (1 + $juros/100),
               'qtd'   => $item->getQtyOrdered(),
           );
         }
@@ -269,10 +273,10 @@ class Uecommerce_Mundipagg_Block_Standard_Success extends Mage_Sales_Block_Items
         $sankhya = new Sankhya();
 
         // echo "parceiro: $parceiro, tipo_venda: $tipo_venda:, shipping: , $shipping \n";
-        $frete = $shipping * (1 + $juros/100);
-        $frete = intval($frete * 100) / 100;
+        // $frete = $shipping * (1 + $juros/100);
+        // $frete = intval($frete * 100) / 100;
 
-        $parsed = $sankhya->criar_nota($parceiro, $tipo_venda, $frete, $orderId);
+        $parsed = $sankhya->criar_nota($parceiro, $tipo_venda, $shipping * (1 + $juros/100), $orderId);
         // var_dump($parsed); die();
 
         $nota = (string)$parsed->responseBody->pk->NUNOTA;
