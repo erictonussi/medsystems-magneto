@@ -157,7 +157,7 @@ class Sankhya {
       '<serviceRequest serviceName="MobileLoginSP.login">
           <requestBody>
             <NOMUSU>lojav</NOMUSU>
-            <INTERNO>07etlp01</INTERNO>
+            <INTERNO>07ETlp01</INTERNO>
           </requestBody>
         </serviceRequest>');
 
