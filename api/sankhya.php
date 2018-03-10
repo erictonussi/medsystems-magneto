@@ -1088,7 +1088,13 @@ class Sankhya {
   }
 
   function __destruct () {
-
+    $this->curl_call('mge/service.sbr?serviceName=MobileLoginSP.logout', '
+      <serviceRequest serviceName="MobileLoginSP.logout">
+        <requestBody>
+          <NOMUSU>lojav</NOMUSU>
+          <INTERNO>07ETlp01</INTERNO>
+        </requestBody>
+      </serviceRequest>');
   }
 }
 ?>
