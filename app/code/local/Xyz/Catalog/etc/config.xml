@@ -1,5 +1,10 @@
 <?xml version="1.0"?>
 <config>
+  <modules>
+      <Tonussi_Xyz>
+          <version>1.2</version>
+      </Tonussi_Xyz>
+  </modules>
   <global>
     <models>
         <xyzcatalog>
