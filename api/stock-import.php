@@ -36,11 +36,14 @@ foreach ($products as $product) {
                 <![CDATA['.$product->sankhya_id.']]>
               </CODPROD>
             </foreingKey>
+            <criteria>
+              <expression>CODLOCAL = 2121</expression>
+            </criteria>
           </dataSet>
         </requestBody>
       </serviceRequest>'
     );
-    // var_dump($parsed); die();
+    // var_dump($parsed); //die();
 
     // $produtos = [];
     $estoque = 0;
