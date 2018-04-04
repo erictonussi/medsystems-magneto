@@ -117,6 +117,10 @@ class Xyz_Catalog_Model_Price_Observer
         $nota = (string)$parsed->responseBody->pk->NUNOTA;
         // $nota = 50239;
 
+        if (!$nota) {
+          Mage::throwException('Tipo de pagamento não liberado, favor entrar em contato.');
+        }
+
         $parsed = $sankhya->incluir_item_nota($nota, $items);
         // var_dump($parsed);
 
