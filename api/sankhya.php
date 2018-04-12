@@ -532,7 +532,7 @@ class Sankhya {
               <CODCONTATO>1</CODCONTATO>
               <DTMOV/>
               <CODNAT>310101</CODNAT>
-              <CODCENCUS>1010300</CODCENCUS>
+              <CODCENCUS>1010200</CODCENCUS>
               <CODCIDPREST/>
               <CODEMPNEGOC/>
               <CODPROJ>10101</CODPROJ>
