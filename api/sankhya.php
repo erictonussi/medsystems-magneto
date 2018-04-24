@@ -775,7 +775,7 @@ class Sankhya {
           <AD_GARANTIA/>
           <AD_MOT_BONIFICA/>
           <AD_VLRDISPARO/>
-          <ALIQICMS>4</ALIQICMS>
+          <ALIQICMS>0</ALIQICMS>
           <!-- <ALIQICMSRED/> -->
           <ALIQIPI>0</ALIQIPI>
           <ALIQISS/>
