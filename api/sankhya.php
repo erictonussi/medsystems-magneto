@@ -426,7 +426,7 @@ class Sankhya {
               <VLRTOTLIQITEMMOE/>
               <TPEMISNFE/>
               <BASEISS/>
-              <CODVEND/>
+              <CODVEND>60</CODVEND>
               <CHAVENFE/>
               <CODCID/>
               <UFVEICULO/>
